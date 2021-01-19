@@ -1,0 +1,2 @@
+D:\unitypr\Samochodziki3d\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\unitypr\Samochodziki3d\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
