@@ -15,6 +15,7 @@ public class Scena2 : MonoBehaviour
     bool lewo = true;
     public GameObject Panel1, Panel2;
     int pieniadze, amunicja, bron_level;
+    public Slider Czerwony,Zielony,Niebieski;
 
     private void Start()
     {
@@ -114,6 +115,9 @@ public class Scena2 : MonoBehaviour
                 G = kolor_Postaci.G;
                 B = kolor_Postaci.B;
                 A = kolor_Postaci.A;
+                Czerwony.value = R;
+                Zielony.value = G;
+                Niebieski.value = B;
                 break;
             case 2:
                 Wyswietl.text = "Oczy";
@@ -124,6 +128,9 @@ public class Scena2 : MonoBehaviour
                 //R = kolor_Oczy_P.R;
                 //G = kolor_Oczy_P.G;
                 //B = kolor_Oczy_P.B;
+                Czerwony.value = R;
+                Zielony.value = G;
+                Niebieski.value = B;
                 break;
             case 3:
                 Wyswietl.text = "Broda";
@@ -131,12 +138,18 @@ public class Scena2 : MonoBehaviour
                 G = kolor_Brody.G;
                 B = kolor_Brody.B;
                 A = kolor_Brody.A;
+                Czerwony.value = R;
+                Zielony.value = G;
+                Niebieski.value = B;
                 break;
             case 4:
                 Wyswietl.text = "Kapelutek";
                 R = kolor_Kapuletek.R;
                 G = kolor_Kapuletek.R;
                 B = kolor_Kapuletek.R;
+                Czerwony.value = R;
+                Zielony.value = G;
+                Niebieski.value = B;
                 liczba = 0;
                 break;
         }
@@ -221,8 +234,19 @@ public class Scena2 : MonoBehaviour
         PlayerPrefs.SetInt("MojaBron", bron_level);
         PlayerPrefs.SetInt("Pieniadze", pieniadze);
     }
-    public void Linia(float k)
+    public void LiniaR(float k)
     {
-        kolory_postaci.material.color = new Color(k, 0F, 0f);
+        R = k;
+        Zmien_Kolor();
+    }
+    public void LiniaG(float k)
+    {
+        G = k;
+        Zmien_Kolor();
+    }
+    public void LiniaB(float k)
+    {
+        B = k;
+        Zmien_Kolor();
     }
 }
