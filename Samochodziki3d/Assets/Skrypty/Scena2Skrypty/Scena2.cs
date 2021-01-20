@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Scena2 : MonoBehaviour
 {
-    public MeshRenderer kolory_postaci,OkoL_postaci,OkoP_postaci,Broda_postaci;
+    public MeshRenderer kolory_postaci,OkoL_postaci,OkoP_postaci,Broda_postaci,Kapelutek_postaci;
     private float R, G, B,A;
     public Text Wyswietl,MojeMonety,MojeAmmo,MojLevelBroni,ZmiennyLevel;
     int liczba = 0;
-    public Kolor kolor_Postaci, kolor_Oczy_L, kolor_Oczy_P, kolor_Brody;
+    public Kolor kolor_Postaci, kolor_Oczy_L, kolor_Oczy_P, kolor_Brody,kolor_Kapuletek;
     float obrot = 0;
     bool lewo = true;
     public GameObject Panel1, Panel2;
@@ -59,7 +59,7 @@ public class Scena2 : MonoBehaviour
                 PlayerPrefs.SetFloat("Kolor_G_Oczy", G);
                 PlayerPrefs.SetFloat("Kolor_B_Oczy", B);
                 break;
-            case 0:
+            case 3:
                 Broda_postaci.material.color = new Color(R, G, B, A);
                 kolor_Brody.R = R;
                 kolor_Brody.G = G;
@@ -67,6 +67,12 @@ public class Scena2 : MonoBehaviour
                 PlayerPrefs.SetFloat("Kolor_R_Broda", R);
                 PlayerPrefs.SetFloat("Kolor_G_Broda", G);
                 PlayerPrefs.SetFloat("Kolor_B_Broda", B);
+                break;
+            case 0:
+                Kapelutek_postaci.material.color = new Color(R, G, B, A);
+                kolor_Kapuletek.R = R;
+                kolor_Kapuletek.R = G;
+                kolor_Kapuletek.R = B;
                 break;
         }
     }
@@ -125,6 +131,12 @@ public class Scena2 : MonoBehaviour
                 G = kolor_Brody.G;
                 B = kolor_Brody.B;
                 A = kolor_Brody.A;
+                break;
+            case 4:
+                Wyswietl.text = "Kapelutek";
+                R = kolor_Kapuletek.R;
+                G = kolor_Kapuletek.R;
+                B = kolor_Kapuletek.R;
                 liczba = 0;
                 break;
         }
@@ -142,6 +154,7 @@ public class Scena2 : MonoBehaviour
         amunicja = PlayerPrefs.GetInt("MojeAmmo");
         bron_level = PlayerPrefs.GetInt("MojaBron");
         pieniadze = PlayerPrefs.GetInt("Pieniadze");
+        kolor_Kapuletek = new Kolor(0f, 0f, 1f);
     }
     void ObrotPostaci()
     {
@@ -207,5 +220,9 @@ public class Scena2 : MonoBehaviour
         PlayerPrefs.SetInt("MojeAmmo", amunicja);
         PlayerPrefs.SetInt("MojaBron", bron_level);
         PlayerPrefs.SetInt("Pieniadze", pieniadze);
+    }
+    public void Linia(float k)
+    {
+        kolory_postaci.material.color = new Color(k, 0F, 0f);
     }
 }
