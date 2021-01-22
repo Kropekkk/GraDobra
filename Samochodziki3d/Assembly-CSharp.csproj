@@ -62,23 +62,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Animacja.cs" />
-    <Compile Include="Assets\Nokobot\Modern Guns - Handgun\_Demo Assets\SimpleShoot.cs" />
-    <Compile Include="Assets\Skrypty\Bananpredkosc.cs" />
+    <Compile Include="Assets\Scena2Bron.cs" />
     <Compile Include="Assets\Skrypty\Bot.cs" />
     <Compile Include="Assets\Skrypty\Bron.cs" />
     <Compile Include="Assets\Skrypty\Gra.cs" />
     <Compile Include="Assets\Skrypty\Kamera.cs" />
-    <Compile Include="Assets\Skrypty\Kolorystacha.cs" />
     <Compile Include="Assets\Skrypty\Mojapostac.cs" />
     <Compile Include="Assets\Skrypty\Ruch.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Kolor.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Scena2.cs" />
-    <Compile Include="Assets\Skrypty\SkryptyNabron\Magazynek.cs" />
-    <Compile Include="Assets\Skrypty\SkryptyNabron\Rodzajebroni.cs" />
+    <Compile Include="Assets\Skrypty\SkryptyDoBroni\Obslugabroni.cs" />
     <Compile Include="Assets\Skrypty\TworzenieBota.cs" />
     <Compile Include="Assets\Skrypty\ZaradzanieBotami.cs" />
-    <None Include="Assets\Nokobot\Modern Guns - Handgun\README.txt" />
+    <Compile Include="Assets\WygladBroni.cs" />
     <None Include="Assets\Potta_One\OFL.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Github/GraDobra/GraDobra/Samochodziki3d/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

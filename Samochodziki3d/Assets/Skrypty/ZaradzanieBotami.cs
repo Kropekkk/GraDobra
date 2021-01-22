@@ -10,7 +10,6 @@ public class ZaradzanieBotami : MonoBehaviour
     float losowaliczba;
     bool Czytrwa=false;
     float czas = 0;
-    public Text czas_t;
     public Text tablica;
     public Gra jedynaGra;
     int botaktualne;
@@ -38,7 +37,6 @@ public class ZaradzanieBotami : MonoBehaviour
         if (Czytrwa)
         {
             czas += Time.deltaTime;
-            Licz();
         }
     }
     void Gra()
@@ -49,7 +47,6 @@ public class ZaradzanieBotami : MonoBehaviour
     void KoniecGry()
     {
         Czytrwa = false;
-        czas_t.text = "Wygrales: " + Mathf.RoundToInt(czas);
         tablica.text = "Wygrales, Twoj czas to: " + Mathf.RoundToInt(czas);
         jedynaGra.PrzeszedlLevel();
         czas = 0;
@@ -64,10 +61,6 @@ public class ZaradzanieBotami : MonoBehaviour
             ile_mobow = ile_mobow - 1;
         }
     }
-    void Licz()
-    {
-        czas_t.text = "Czas: " + Mathf.RoundToInt(czas);
-    }
     public void Jedenniezyje()
     {
         botaktualne = botaktualne - 1;
@@ -79,7 +72,6 @@ public class ZaradzanieBotami : MonoBehaviour
     public void Przegrana()
     {
         Czytrwa = false;
-        czas_t.text = "Przegrana: " + Mathf.RoundToInt(czas);
         tablica.text = "Przegrales Strzel zeby zaczac";
         czas = 0;
         jedynaGra.Przegrana();

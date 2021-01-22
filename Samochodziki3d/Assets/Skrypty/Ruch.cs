@@ -37,9 +37,6 @@ public class Ruch : MonoBehaviour
 
         x = Input.GetAxis("Horizontal");
         z = Input.GetAxis("Vertical");
-       
-
-
 
         Vector3 ruch = transform.right * x + transform.forward * z;
         gracz.Move(ruch * 10f * Time.deltaTime);
@@ -57,19 +54,6 @@ public class Ruch : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Wyjdz();
         }
-
-        //if (Input.GetKey("2") && zmien == 1)
-        //
-           // zmien = 2;
-            //Slot1.SetActive(false);
-            //Slot2.SetActive(true);
-        //}
-        //if(Input.GetKey("1") && zmien == 2)
-       // {
-          //  zmien = 1;
-           // Slot1.SetActive(true);
-           // Slot2.SetActive(false);
-       // }
     }
     public void Wyjdz()
     {

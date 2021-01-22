@@ -18,9 +18,17 @@ public class Bron : MonoBehaviour
     public bool czyAutomat=true;
     public ZaradzanieBotami boty;
     public MeshRenderer kolor_broni;
+    public MeshRenderer kolor_magazynka;
+    public MeshRenderer kolor_lufy;
+    bool zmiana_magazynka = true;
+    public Animator bron_animacja;
+    float czasmagazynka;
 
     void Start()
     {
+        //GameObject go = Instantiate(Resources.Load("Karabin"), transform.position, transform.rotation) as GameObject;
+        //go.transform.parent = GameObject.Find("Slot1").transform;
+        //Instantiate(Resources.Load("Karabin"),transform.position,transform.rotation);
         KonfiguracjaBroni();
     }
     void Update()
@@ -40,6 +48,20 @@ public class Bron : MonoBehaviour
                 czas = Time.time + coile / 2;
                 Debug.Log("czasgry: " + Time.time + " nastepnystrzral: " + czas);
                 Strzal();
+            }
+        }
+        if(Input.GetKey("r") && zmiana_magazynka)
+        {
+            Zmiana();
+        }
+        else
+        {
+            czasmagazynka += Time.deltaTime;
+            if(czasmagazynka>2)
+            {
+                bron_animacja.SetBool("magazynek", false);
+                zmiana_magazynka = true;
+                czasmagazynka = 0;
             }
         }
     }
@@ -64,12 +86,20 @@ public class Bron : MonoBehaviour
     }
     void KonfiguracjaBroni()
     {
-        kolor_broni.material.color = new Color(1f, 0f, 0f, 1f);
+       /* kolor_broni.material.color = new Color(1f, 0f, 0f, 1f);
+        kolor_magazynka.material.color = new Color(0f, 0f, 0f);
+        kolor_lufy.material.color = new Color(0, 1f, 0f);
         Rodzajebroni mojabron = new Rodzajebroni("Pistolet");
         damage = mojabron.damage;
         zasieg = mojabron.zasieg;
         Magazynek = mojabron.pojemnoscmagazynka;
         amunicja = mojabron.amunicja;
-        Ileamunicji.text = "Amunicja: " + amunicja;
+        Ileamunicji.text = "Amunicja: " + amunicja;*/
+    }
+    void Zmiana()
+    {
+        bron_animacja.SetBool("magazynek", true);
+        zmiana_magazynka = false;
+
     }
 }
