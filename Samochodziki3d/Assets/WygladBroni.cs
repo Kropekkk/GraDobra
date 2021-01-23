@@ -14,8 +14,16 @@ public class WygladBroni : MonoBehaviour
     public GameObject Wyglad_broni;
     public GameObject Wyglad_magazynka;
 
+    public Bron mojabron;
 
-    
+    public int damage;
+    public int pojemnoscmagazynka;
+
+    public GameObject Miejsce_Na_Magazynek;
+
+
+    public Obslugamagazynka testmag;
+
 
     void Start()
     {
@@ -27,8 +35,14 @@ public class WygladBroni : MonoBehaviour
         KolorBroni(kolorbroni.r,kolorbroni.g,kolorbroni.b);
         KolorMagazynka(kolormagazynka.r, kolormagazynka.g, kolormagazynka.b);
 
+        damage = mojabron.damage;
+        pojemnoscmagazynka = mojabron.aktualny_magazynek.pojemnosc_magazynka;
 
-        
+
+        Miejsce_Na_Magazynek = Instantiate(Resources.Load(mojabron.aktualny_magazynek.Nazwa_magazynka),Miejsce_Na_Magazynek.transform.position, Miejsce_Na_Magazynek.transform.rotation) as GameObject;
+        Miejsce_Na_Magazynek.transform.parent = transform;
+
+        testmag = Miejsce_Na_Magazynek.GetComponent<Obslugamagazynka>();
         
     }
     public void KolorBroni(float r, float g, float b)

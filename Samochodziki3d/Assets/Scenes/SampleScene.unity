@@ -2616,6 +2616,8 @@ MonoBehaviour:
   boty: {fileID: 884873376}
   wyglad_broni: {fileID: 0}
   spawn_broni: {fileID: 1620519787}
+  coile: 2
+  mojabron: {fileID: 0}
 --- !u!1 &1642129039
 GameObject:
   m_ObjectHideFlags: 0

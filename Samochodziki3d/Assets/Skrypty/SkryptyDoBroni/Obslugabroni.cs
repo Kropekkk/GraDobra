@@ -11,13 +11,18 @@ public class Obslugabroni : MonoBehaviour
     public ZaradzanieBotami boty;
     int zasieg = 100;
 
-    string nazwabroni = "BronPodstawowa";
+    string nazwabroni = "BronM16";
 
     public WygladBroni wyglad_broni;
 
     public Transform spawn_broni;
+    int amunicja;
 
-    private int amunicja = 100; //tymczasowa
+    float czas = 0f;
+
+    public float coile = 2f;
+
+    public Bron mojabron;
 
     void Start()
     {
@@ -25,6 +30,11 @@ public class Obslugabroni : MonoBehaviour
         bron.transform.parent = GameObject.Find("Slot1").transform;
 
         wyglad_broni = bron.GetComponent<WygladBroni>();
+
+
+        Debug.Log(wyglad_broni.damage);
+
+        amunicja = PlayerPrefs.GetInt("MojeAmmo");
 
         amunicja_T.text = "Amunicja: " + amunicja;
 
@@ -36,9 +46,11 @@ public class Obslugabroni : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && Time.time >= czas && amunicja > 0)
         {
+            czas = Time.time + coile / 10;
             Strzal();
+            Debug.Log(wyglad_broni.damage);
         }
         if(Input.GetKey("r"))
         {
@@ -47,6 +59,9 @@ public class Obslugabroni : MonoBehaviour
     }
     void Strzal()
     {
+        amunicja = amunicja - 1;
+        PlayerPrefs.SetInt("MojeAmmo", amunicja);
+        amunicja_T.text = "Amunicja: " + amunicja;
         RaycastHit hit;
         if (Physics.Raycast(mojwidok.transform.position, mojwidok.transform.forward, out hit, zasieg));
         {
@@ -57,7 +72,7 @@ public class Obslugabroni : MonoBehaviour
             Bot jaki = hit.transform.GetComponent<Bot>();
             if (jaki != null)
             {
-                jaki.Zycie(10f);
+                jaki.Zycie(wyglad_broni.damage);
             }
         }
 
