@@ -6,12 +6,7 @@ using UnityEngine;
 public class Bron : ScriptableObject
 {
     public string nazwa_broni;
-
-    public int damage;
-    public int zasieg;
-
-    public string Jaki_magazynek_pasuje;
-    public Magazynek aktualny_magazynek;
-
-
+    public string magazynek;
+    public string szkieletbroni;
+    public string lufa;
 }

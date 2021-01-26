@@ -63,21 +63,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resources\Bron.cs" />
-    <Compile Include="Assets\Resources\Magazynek.cs" />
-    <Compile Include="Assets\Resources\Obslugamagazynka.cs" />
-    <Compile Include="Assets\Scena2Bron.cs" />
+    <Compile Include="Assets\Resources\ObslugaBroni.cs" />
+    <Compile Include="Assets\Resources\Sklep.cs" />
     <Compile Include="Assets\Skrypty\Bot.cs" />
+    <Compile Include="Assets\Skrypty\Bronie\Lufa.cs" />
+    <Compile Include="Assets\Skrypty\Bronie\Magazynek.cs" />
+    <Compile Include="Assets\Skrypty\Bronie\MojaBron.cs" />
+    <Compile Include="Assets\Skrypty\Bronie\ObslugaLufy.cs" />
+    <Compile Include="Assets\Skrypty\Bronie\ObslugaSzkieletu.cs" />
+    <Compile Include="Assets\Skrypty\Bronie\Obslugamagazynka.cs" />
+    <Compile Include="Assets\Skrypty\Bronie\SzkieletBroni.cs" />
     <Compile Include="Assets\Skrypty\Gra.cs" />
     <Compile Include="Assets\Skrypty\Kamera.cs" />
     <Compile Include="Assets\Skrypty\Mojapostac.cs" />
     <Compile Include="Assets\Skrypty\Ruch.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Kolor.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Scena2.cs" />
-    <Compile Include="Assets\Skrypty\SkryptyDoBroni\Obslugabroni.cs" />
     <Compile Include="Assets\Skrypty\TworzenieBota.cs" />
     <Compile Include="Assets\Skrypty\ZaradzanieBotami.cs" />
-    <Compile Include="Assets\WygladBroni.cs" />
-    <Compile Include="Assets\testowystacha.cs" />
+    <Compile Include="Assets\UstawieniaBroni.cs" />
     <None Include="Assets\Potta_One\OFL.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

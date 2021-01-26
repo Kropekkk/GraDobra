@@ -13,13 +13,11 @@ public class Ruch : MonoBehaviour
     public LayerMask dotyk;
     Vector3 predkosc;
     public float skok = 3f;
-    int zmien = 1;
     public MeshRenderer KolorPostaci,OkoL_postaci, OkoP_postaci, Broda_postaci;
 
     public GameObject Slot1, Slot2;
 
     bool czy;
-    bool kursor = true;
 
     void Start()
     {
@@ -29,11 +27,6 @@ public class Ruch : MonoBehaviour
     void Update()
     {
         czy = Physics.CheckSphere(Czydotyk.position, odl, dotyk);
-
-        if(czy && predkosc.y<0 )
-        {
-           // predkosc.y = -2f;
-        }
 
         x = Input.GetAxis("Horizontal");
         z = Input.GetAxis("Vertical");
