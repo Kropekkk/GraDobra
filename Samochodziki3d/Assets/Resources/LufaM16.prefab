@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2206450214463494269
+--- !u!1 &8506727528389917208
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4887886654850779477}
-  - component: {fileID: 6775642387336057915}
-  - component: {fileID: 2070577958958742497}
-  - component: {fileID: 704205368277157827}
+  - component: {fileID: 3735208240403928790}
+  - component: {fileID: 2686528240627114287}
+  - component: {fileID: 2142709222267861547}
+  - component: {fileID: 8632195376475203100}
   m_Layer: 0
   m_Name: LufaM16
   m_TagString: Untagged
@@ -19,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4887886654850779477
+--- !u!4 &3735208240403928790
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2206450214463494269}
+  m_GameObject: {fileID: 8506727528389917208}
   m_LocalRotation: {x: 0.49999997, y: 0.5000001, z: -0.5, w: -0.49999988}
   m_LocalPosition: {x: -0.51449883, y: -0.120853685, z: 0}
   m_LocalScale: {x: 30.000002, y: 30.000002, z: 300}
@@ -33,21 +33,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6775642387336057915
+--- !u!33 &2686528240627114287
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2206450214463494269}
+  m_GameObject: {fileID: 8506727528389917208}
   m_Mesh: {fileID: -2257135046198943799, guid: 638007159379b784c941e0e5aa3c3c91, type: 3}
---- !u!23 &2070577958958742497
+--- !u!23 &2142709222267861547
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2206450214463494269}
+  m_GameObject: {fileID: 8506727528389917208}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,18 +80,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &704205368277157827
+--- !u!114 &8632195376475203100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2206450214463494269}
+  m_GameObject: {fileID: 8506727528389917208}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0eeb11e403393a0469ce741e0886c1bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   kolorLufy: {r: 0, g: 0, b: 0, a: 0}
-  wygladLufy: {fileID: 2070577958958742497}
+  wygladLufy: {fileID: 2142709222267861547}
   mojalufa: {fileID: 11400000, guid: 062002568a8323d4bac187432b79052b, type: 2}

@@ -2607,13 +2607,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620519786}
-  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.568, y: -0.467, z: 1.031}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.568, y: -0.239, z: 0.877}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1416758228}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1620519789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2650,6 +2650,7 @@ MonoBehaviour:
   zmiana_magazynka: 2
   amunicja: 0
   mojabron: {fileID: 11400000, guid: 7c75f8c7054abcd47936e727aa0907bf, type: 2}
+  tabron: {fileID: 0}
 --- !u!1 &1642129039
 GameObject:
   m_ObjectHideFlags: 0

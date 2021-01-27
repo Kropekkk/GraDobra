@@ -43,6 +43,7 @@ public class MojaBron : MonoBehaviour
 
     public ObslugaBroni tabron;
 
+    string aktualnabron;
 
     void Start()
     {
@@ -59,7 +60,10 @@ public class MojaBron : MonoBehaviour
 
         AktualnaLufa = Instantiate(Resources.Load(mojabron.lufa), spawnlufy.position, spawnlufy.rotation) as GameObject;
         */
-        AktualnaBron = Instantiate(Resources.Load("NowaBron"), SpawnBroni.transform.position, SpawnBroni.transform.rotation) as GameObject;
+
+        aktualnabron = "Bronie/" + (PlayerPrefs.GetString("AktualnaBron"));
+
+        AktualnaBron = Instantiate(Resources.Load(aktualnabron), SpawnBroni.transform.position, SpawnBroni.transform.rotation) as GameObject;
         tabron = AktualnaBron.GetComponent<ObslugaBroni>();
 
         tabron.transform.parent = transform;
@@ -88,8 +92,6 @@ public class MojaBron : MonoBehaviour
 
 
 
-
-        
     }
 
 

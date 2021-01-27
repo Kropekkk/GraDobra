@@ -7,4 +7,5 @@ public class Lufa : ScriptableObject
 {
     public string Nazwa_Lufy;
     public string Przeznaczenie_Lufy;
+    public GameObject lufa;
 }

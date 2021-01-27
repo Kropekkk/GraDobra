@@ -20,7 +20,8 @@ public class ObslugaSzkieletu : MonoBehaviour
 
     public void MojKolorSzkieletu()
     {
-        //wygladszkieltu.material.color = kolorszkieltu;
-        wygladszkieltu.sharedMaterial.color = kolorszkieltu;
+        
+        wygladszkieltu.material.color = kolorszkieltu;
+        //wygladszkieltu.sharedMaterial.color = kolorszkieltu;
     }
 }

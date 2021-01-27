@@ -9,4 +9,7 @@ public class Bron : ScriptableObject
     public string magazynek;
     public string szkieletbroni;
     public string lufa;
+    public Magazynek mojmagazynek;
+    public Lufa mojalufa;
+    public SzkieletBroni mojszkielet;
 }

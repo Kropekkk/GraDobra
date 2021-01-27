@@ -64,7 +64,9 @@
   <ItemGroup>
     <Compile Include="Assets\Resources\Bron.cs" />
     <Compile Include="Assets\Resources\ObslugaBroni.cs" />
+    <Compile Include="Assets\Resources\PobieranieBroni.cs" />
     <Compile Include="Assets\Resources\Sklep.cs" />
+    <Compile Include="Assets\Resources\ZapisaywanieBroni.cs" />
     <Compile Include="Assets\Skrypty\Bot.cs" />
     <Compile Include="Assets\Skrypty\Bronie\Lufa.cs" />
     <Compile Include="Assets\Skrypty\Bronie\Magazynek.cs" />

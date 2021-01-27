@@ -16,3 +16,6 @@ MonoBehaviour:
   magazynek: MagazynekM16
   szkieletbroni: SzkieletM16
   lufa: LufaM16
+  mojmagazynek: {fileID: 11400000, guid: 9a95015393817d44f825b2d2b85c8246, type: 2}
+  mojalufa: {fileID: 11400000, guid: 062002568a8323d4bac187432b79052b, type: 2}
+  mojszkielet: {fileID: 11400000, guid: eb75ea05e4bc93d4f85c0c0a1e314131, type: 2}

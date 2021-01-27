@@ -17,6 +17,6 @@ public class Obslugamagazynka : MonoBehaviour
     public void MojKolorMagazynka()
     {
         //wygladmagazynka.material.color = kolormagazynka;
-        wygladmagazynka.sharedMaterial.color = kolormagazynka;
+        wygladmagazynka.material.color = kolormagazynka;
     }
 }

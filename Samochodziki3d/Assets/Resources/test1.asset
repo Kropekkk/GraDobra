@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e80fcab838ac644a4360cd962ab975, type: 3}
-  m_Name: Mag_M16
+  m_Script: {fileID: 11500000, guid: 8a6b37ba3cfc0ad4cab036cbd89cdcca, type: 3}
+  m_Name: test1
   m_EditorClassIdentifier: 
-  Nazwa_magazynka: MagazynekM16
-  Przeznaczenie_magazynka: Karabin
-  pojemnosc_magazynka: 30
-  magazynek: {fileID: 344074979978969618, guid: 79ac0692ee503124cbbeb02a6199780f,
-    type: 3}
+  nazwa_broni: 
+  magazynek: 
+  szkieletbroni: 
+  lufa: 
+  obiekt: {fileID: 0}

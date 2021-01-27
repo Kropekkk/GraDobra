@@ -21,8 +21,17 @@ public class Sklep : MonoBehaviour
     public ObslugaLufy lufa;
 
     public ObslugaBroni mojabron;
-    
-    
+
+
+
+
+
+    private void Start()
+    {
+
+
+    }
+
     void Update()   
     {
         if(Input.GetMouseButtonDown(0))
@@ -95,6 +104,7 @@ public class Sklep : MonoBehaviour
     }
     public void Zapisz()
     {
-        PrefabUtility.SaveAsPrefabAsset(TaBron, "Assets/Resources/NowaBron.prefab");
+        TaBron.transform.rotation = Quaternion.Euler(-90, 0, 0);
+        PrefabUtility.SaveAsPrefabAsset(TaBron, "Assets/Resources/Bronie/NowaBron.prefab");
     }
 }
