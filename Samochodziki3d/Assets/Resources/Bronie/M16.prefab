@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637466698817543767}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.8440627, y: 0.186453, z: 0.000000025051609}
+  m_LocalPosition: {x: -0.8440627, y: 0.186453, z: 0}
   m_LocalScale: {x: 100, y: 29, z: 100}
   m_Children: []
   m_Father: {fileID: 1702886805261609828}
@@ -131,6 +131,8 @@ MonoBehaviour:
   Szkielet: {fileID: 4108176970886982558}
   Magazynek: {fileID: 1959519269112048587}
   Lufa: {fileID: 922993299968895303}
+  Muszka: {fileID: 0}
+  Celownik: {fileID: 0}
 --- !u!1 &6018293054848240444
 GameObject:
   m_ObjectHideFlags: 0

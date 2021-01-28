@@ -4,10 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UstawieniaBroni : MonoBehaviour
-{
-    public GameObject magazynek_tejbroni;
-    public GameObject szkielet_tejbroni;
-    public GameObject lufa_tejbroni;
+{   
+    [Header("Chmura Broni")]
+    public GameObject[] chmurabroni;
+    [Header("Miejsce Na Bronie")]
+    public Transform[] wieszakinabronie;
+    [Header("Bronie")]
+    public GameObject[] listamoichbroni;
+
+    public List<string> wszystkienazwy;
+
+
+    int tymczasowyindex;
+    public GameObject MojaReka;
+    public GameObject BronWRece;
+
+    ZapisaywanieBroni Pamiec = new ZapisaywanieBroni();
 
     public ObslugaSzkieletu obsluga_szkieletu;
     public Obslugamagazynka obsluga_magazynka;
@@ -15,47 +27,130 @@ public class UstawieniaBroni : MonoBehaviour
 
     public float R, G, B;
 
+    int ktora_czesc = 0;
+    int liczba_broni;
+
     public Slider kolorR, kolorG, kolorB;
     public Text Cozmieniam;
-    int ktora_czesc = 0;
 
     string aktualnabron;
-
-    public GameObject[] listabroni;
-    public Transform[] spawnybroni;
-    public List<GameObject> wlasciwalista;
-
-    int jakas;
-    int i = 0;
-
-    ZapisaywanieBroni Pamiec;
-
     string nazwa_broni;
+    public GameObject AkutalnaBron;
+    public Text Takutalnabron;
 
     void Start()
     {
-        Pamiec = new ZapisaywanieBroni();
-        listabroni = Resources.LoadAll<GameObject>("Bronie");
-        nazwa_broni = PlayerPrefs.GetString("AktualnaBron");
-        aktualnabron = "Bronie/" + nazwa_broni;
-
-        jakas = listabroni.Length;
-       while (jakas>0)
-        {
-            wlasciwalista.Add(Instantiate(listabroni[i], spawnybroni[i].transform.position, listabroni[i].transform.rotation) as GameObject);
-            i += 1;
-            jakas = jakas - 1;
-            
-        }
-
-
-        Pobierz();
-        Zmien_Kolor();
+        chmurabroni = Resources.LoadAll<GameObject>("Bronie");
+        ZamienListeBroni();
+        liczba_broni = chmurabroni.Length;      
     }
-
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                BoxCollider bc = hit.collider as BoxCollider;
+                if (bc != null)
+                {
+                    if(wszystkienazwy.Contains(bc.name))
+                    {
+                        tymczasowyindex = wszystkienazwy.IndexOf(bc.name);
+                        DoRekiBron();
+                    }
+                }
+            }
+        }
+    }
     public void Zmien_Kolor()
     {
+        if(ktora_czesc==2)
+        {
+            ktora_czesc = 0;
+        }
         ktora_czesc += 1;
+        Ktoraczesc();
+    }
+    void WlasciwyKolor()
+    {
+        switch (ktora_czesc)
+        {
+            case 1:
+                obsluga_szkieletu.kolorszkieltu = new Color(R, G, B);
+                obsluga_szkieletu.MojKolorSzkieletu();
+                Pamiec.ZapiszKolor(R,G,B,listamoichbroni[tymczasowyindex].name,"Szkielet");
+                listamoichbroni[tymczasowyindex].GetComponent<ObslugaBroni>().Szkielet.GetComponent<ObslugaSzkieletu>().kolorszkieltu = new Color(R, G, B);
+                listamoichbroni[tymczasowyindex].GetComponent<ObslugaBroni>().Szkielet.GetComponent<ObslugaSzkieletu>().MojKolorSzkieletu();
+                break;
+            case 2:
+                obsluga_magazynka.kolormagazynka = new Color(R, G, B);
+                obsluga_magazynka.MojKolorMagazynka();
+                Pamiec.ZapiszKolor(R, G, B, listamoichbroni[tymczasowyindex].name, "Magazynek");
+                listamoichbroni[tymczasowyindex].GetComponent<ObslugaBroni>().Magazynek.GetComponent<Obslugamagazynka>().kolormagazynka = new Color(R, G, B);
+                listamoichbroni[tymczasowyindex].GetComponent<ObslugaBroni>().Magazynek.GetComponent<Obslugamagazynka>().MojKolorMagazynka();
+                break;
+        }
+    }
+    public void Kolor_R(float k)
+    {
+        R = k;
+        WlasciwyKolor();
+    }
+    public void Kolor_G(float k)
+    {
+        G = k;
+        WlasciwyKolor();
+    }
+    public void Kolor_B(float k)
+    {
+        B = k;
+        WlasciwyKolor();
+    }
+    public void DoRekiBron()
+    {
+        if (MojaReka == null)
+        {
+            MojaReka = Instantiate(listamoichbroni[tymczasowyindex],transform.position,transform.rotation);
+            MojaReka.transform.parent = transform;
+            KoloryTejBroni();
+            if(Cozmieniam.text=="")
+            {
+                Zmien_Kolor();
+            }
+        }
+        else
+        {
+            Destroy(MojaReka);
+            MojaReka = Instantiate(listamoichbroni[tymczasowyindex], transform.position, transform.rotation);
+            MojaReka.transform.parent = transform;
+            KoloryTejBroni();
+            Ktoraczesc();
+            WlasciwyKolor();
+        }
+        GlownaBron();
+    }
+    void GlownaBron()
+    {
+        AkutalnaBron.SetActive(true);
+        nazwa_broni = PlayerPrefs.GetString("AktualnaBron");
+        if(nazwa_broni == listamoichbroni[tymczasowyindex].name)
+        {
+            Takutalnabron.text = "Główna Broń";
+        }
+        else
+        {
+            Takutalnabron.text = "Ustaw Broń";
+        }
+    }
+    public void UstawGłownaBron()
+    {
+        PlayerPrefs.SetString("AktualnaBron",listamoichbroni[tymczasowyindex].name);
+        GlownaBron();
+    }
+    void Ktoraczesc()
+    {
         switch (ktora_czesc)
         {
             case 1:
@@ -75,78 +170,77 @@ public class UstawieniaBroni : MonoBehaviour
                 kolorR.value = R;
                 kolorG.value = G;
                 kolorB.value = B;
-                ktora_czesc = 0;
                 break;
         }
-
-        
     }
-    void WlasciwyKolor()
+    void KoloryTejBroni()
     {
-        switch (ktora_czesc)
+        obsluga_szkieletu = MojaReka.GetComponent<ObslugaBroni>().Szkielet.GetComponent<ObslugaSzkieletu>();
+        obsluga_magazynka = MojaReka.GetComponent<ObslugaBroni>().Magazynek.GetComponent<Obslugamagazynka>();
+    }
+    void ZamienListeBroni()
+    {
+        int liczba_broni_do_pobrania = chmurabroni.Length;
+        int i = 0;
+
+        while (liczba_broni_do_pobrania>0)
         {
-            case 1:
-                obsluga_szkieletu.kolorszkieltu = new Color(R, G, B);
-                obsluga_szkieletu.MojKolorSzkieletu();
-                Pamiec.ZapiszKolor(R,G,B,nazwa_broni,"Szkielet");
-                break;
-            case 0:
-                obsluga_magazynka.kolormagazynka = new Color(R, G, B);
+            listamoichbroni[i] = new GameObject(chmurabroni[i].name);
+            listamoichbroni[i].transform.position = wieszakinabronie[i].transform.position;
+            listamoichbroni[i].transform.rotation = wieszakinabronie[i].transform.rotation;
+            listamoichbroni[i].transform.parent = wieszakinabronie[i].transform;
+
+
+            listamoichbroni[i].AddComponent<ObslugaBroni>();
+
+            GameObject tymczasowabron = Instantiate(chmurabroni[i]);
+
+            listamoichbroni[i].GetComponent<ObslugaBroni>().Szkielet = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Szkielet,wieszakinabronie[i].transform.position,wieszakinabronie[i].transform.rotation);
+            GameObject mojszkielet = listamoichbroni[i].GetComponent<ObslugaBroni>().Szkielet;
+            mojszkielet.transform.parent = listamoichbroni[i].transform;
+
+            ObslugaSzkieletu obsluga_szkieletu = mojszkielet.GetComponent<ObslugaSzkieletu>();
+
+            Pamiec.WczytajKolor(chmurabroni[i].name, "Szkielet");
+            obsluga_szkieletu.kolorszkieltu = Pamiec.kolorbroni;
+            obsluga_szkieletu.MojKolorSzkieletu();
+
+            if (tymczasowabron.GetComponent<ObslugaBroni>().Magazynek!=null)
+            {
+                GameObject mojmagazynek = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Magazynek,obsluga_szkieletu.Miejsce_Na_Magazynek.transform.position,obsluga_szkieletu.Miejsce_Na_Magazynek.transform.rotation);
+                mojmagazynek.transform.parent = listamoichbroni[i].transform;
+                listamoichbroni[i].GetComponent<ObslugaBroni>().Magazynek = mojmagazynek;
+
+                Obslugamagazynka obsluga_magazynka = mojmagazynek.GetComponent<Obslugamagazynka>();
+
+                Pamiec.WczytajKolor(chmurabroni[i].name, "Magazynek");
+                obsluga_magazynka.kolormagazynka = Pamiec.kolorbroni;
                 obsluga_magazynka.MojKolorMagazynka();
-                Pamiec.ZapiszKolor(R,G,B,nazwa_broni,"Magazynek");
-                break;
+            }
+            else
+            {
+                Debug.Log("Nie ma Magazynka");
+            }
+
+            if(tymczasowabron.GetComponent<ObslugaBroni>().Lufa!=null)
+            {
+                GameObject mojalufa = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Lufa, obsluga_szkieletu.Miejsce_Na_Lufe.transform.position, obsluga_szkieletu.Miejsce_Na_Lufe.transform.rotation);
+                mojalufa.transform.parent = listamoichbroni[i].transform;
+                listamoichbroni[i].GetComponent<ObslugaBroni>().Lufa = mojalufa;
+            }
+            else
+            {
+                Debug.Log("Nie ma Lufy");
+            }
+            listamoichbroni[i].AddComponent<BoxCollider>();
+            wszystkienazwy.Add(listamoichbroni[i].name);
+
+            //muszka i celownik do roboty
+
+            Destroy(tymczasowabron);
+
+            i = i + 1;
+            liczba_broni_do_pobrania = liczba_broni_do_pobrania - 1;
         }
-    }
-
-    public void Kolor_R(float k)
-    {
-        R = k;
-        WlasciwyKolor();
-    }
-    public void Kolor_G(float k)
-    {
-        G = k;
-        WlasciwyKolor();
-    }
-    public void Kolor_B(float k)
-    {
-        B = k;
-        WlasciwyKolor();
-    }
-    public void Pobierz()
-    {
-
-        if(nazwa_broni != "M16")
-        {
-            transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-        }
-        GameObject tymczasowabron = Instantiate(Resources.Load(aktualnabron), transform.position, transform.rotation) as GameObject;
-
-
-
-        szkielet_tejbroni = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Szkielet, transform.position, transform.rotation);
-        magazynek_tejbroni = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Magazynek, szkielet_tejbroni.GetComponent<ObslugaSzkieletu>().Miejsce_Na_Magazynek.transform.position, szkielet_tejbroni.GetComponent<ObslugaSzkieletu>().Miejsce_Na_Magazynek.transform.rotation);
-        lufa_tejbroni = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Lufa, szkielet_tejbroni.GetComponent<ObslugaSzkieletu>().Miejsce_Na_Lufe.transform.position, szkielet_tejbroni.GetComponent<ObslugaSzkieletu>().Miejsce_Na_Lufe.transform.rotation);
-
-
-        lufa_tejbroni.transform.parent = transform;
-        szkielet_tejbroni.transform.parent = transform;
-        magazynek_tejbroni.transform.parent = transform;
-
-        obsluga_szkieletu = szkielet_tejbroni.GetComponent<ObslugaSzkieletu>();
-        obsluga_magazynka = magazynek_tejbroni.GetComponent<Obslugamagazynka>();
-        obsluga_lufy = lufa_tejbroni.GetComponent<ObslugaLufy>();
-
-
-        Pamiec.WczytajKolor(nazwa_broni, "Szkielet");
-        obsluga_szkieletu.kolorszkieltu = Pamiec.kolorbroni;
-        obsluga_szkieletu.MojKolorSzkieletu();
-        Pamiec.WczytajKolor(nazwa_broni, "Magazynek");
-        obsluga_magazynka.kolormagazynka = Pamiec.kolorbroni;
-        obsluga_magazynka.MojKolorMagazynka();
-
-
-        Destroy(tymczasowabron);
-
     }
 }

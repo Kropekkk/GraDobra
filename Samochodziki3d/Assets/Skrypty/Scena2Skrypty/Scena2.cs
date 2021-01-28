@@ -16,6 +16,7 @@ public class Scena2 : MonoBehaviour
     public GameObject Panel1, Panel2,Panel3;
     int pieniadze, amunicja, bron_level;
     public Slider Czerwony,Zielony,Niebieski;
+    public GameObject Wieszaki;
 
     private void Start()
     {
@@ -199,12 +200,14 @@ public class Scena2 : MonoBehaviour
     {
         Panel1.SetActive(false);
         Panel2.SetActive(true);
+        Wieszaki.SetActive(true);
         Tekty();
     }
     public void WrocZeSklepu()
     {
         Panel2.SetActive(false);
         Panel1.SetActive(true);
+        Wieszaki.SetActive(false);
     }
     public void WlasciwySklep()
     {

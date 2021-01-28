@@ -9,27 +9,7 @@ public class MojaBron : MonoBehaviour
     public int pojemnosc_magazynka;
     public int zasieg_broni=100;
 
-    public Lufa mojalufa;
-    public Magazynek mojmagazynek;
-    public SzkieletBroni mojszkielet;
-
-    public ObslugaLufy lufa;
-    public Obslugamagazynka magazynek;
-    public ObslugaSzkieletu szkielet;
-
-
-    public Transform spawnlufy;
-    public Transform spawnmagazynka;
-    
-
     public Transform SpawnBroni;
-    public GameObject AktualnaBron;
-    public GameObject AktualnySzkielet;
-    public GameObject AktualnyMagazynek;
-    public GameObject AktualnaLufa;
-
-    public GameObject Bron;
-
 
     public Camera celownik;
     public Text amunicja_T;
@@ -39,58 +19,28 @@ public class MojaBron : MonoBehaviour
     public float zmiana_magazynka=2f;// dodac pozniej
     public int amunicja;
 
-    public Bron mojabron;
+    [Header("GłownaBron")]
+    public GameObject AktualnaBron;
+    public GameObject SzkieletBroni;
+    public GameObject MagazynekBroni;
+    public GameObject LufaBroni;
+    public ObslugaBroni obsluga_broni;
+    public ObslugaSzkieletu obsluga_szkieletu;
+    public Obslugamagazynka obsluga_magazynka;
+    public ObslugaLufy obsluga_lufy;
 
-    public ObslugaBroni tabron;
 
-    string aktualnabron;
+    string nazwabroni;
+    ZapisaywanieBroni Pamiec = new ZapisaywanieBroni();
 
     void Start()
     {
-        /*AktualnySzkielet = Instantiate(Resources.Load(mojabron.szkieletbroni), SpawnBroni.transform.position, SpawnBroni.transform.rotation) as GameObject;
-
-
-        szkielet = AktualnySzkielet.GetComponent<ObslugaSzkieletu>();
-
-        spawnmagazynka = szkielet.Miejsce_Na_Magazynek;
-
-        spawnlufy = szkielet.Miejsce_Na_Lufe;
-
-        AktualnyMagazynek = Instantiate(Resources.Load(mojabron.magazynek), spawnmagazynka.position, spawnmagazynka.rotation) as GameObject;
-
-        AktualnaLufa = Instantiate(Resources.Load(mojabron.lufa), spawnlufy.position, spawnlufy.rotation) as GameObject;
-        */
-
-        aktualnabron = "Bronie/" + (PlayerPrefs.GetString("AktualnaBron"));
-
-        AktualnaBron = Instantiate(Resources.Load(aktualnabron), SpawnBroni.transform.position, SpawnBroni.transform.rotation) as GameObject;
-        tabron = AktualnaBron.GetComponent<ObslugaBroni>();
-
-        tabron.transform.parent = transform;
-
-        //AktualnySzkielet.transform.parent = transform;
-        //AktualnyMagazynek.transform.parent = transform;
-        //AktualnaLufa.transform.parent = transform;
-
-
-
-            //mojszkielet = szkielet.GetComponent<SzkieletBroni>();
-            //mojmagazynek = magazynek.GetComponent<Magazynek>();
-
-
-        //magazynek = AktualnyMagazynek.GetComponent<Obslugamagazynka>();
-
-        //damage = szkielet.damage_szkieletu;
-        //pojemnosc_magazynka = magazynek.pojemnosc_magazynka;
+        nazwabroni = PlayerPrefs.GetString("AktualnaBron");
+        PobierzBron();
 
         amunicja = PlayerPrefs.GetInt("MojeAmmo");
 
         amunicja_T.text = "Amunicja: " + amunicja;
-
-
-
-
-
 
     }
 
@@ -122,5 +72,62 @@ public class MojaBron : MonoBehaviour
                 jaki.Zycie(damage);
             }
         }
+    }
+    void PobierzBron()
+    {
+        GameObject tymczasowabron = Instantiate(Resources.Load("Bronie/" + nazwabroni)) as GameObject;
+
+
+        AktualnaBron = new GameObject(nazwabroni);
+        AktualnaBron.transform.position = SpawnBroni.position;
+        AktualnaBron.transform.rotation = SpawnBroni.rotation;
+        AktualnaBron.transform.parent = SpawnBroni.transform;
+
+        AktualnaBron.AddComponent<ObslugaBroni>();
+        obsluga_broni = AktualnaBron.GetComponent<ObslugaBroni>();
+
+        obsluga_broni.Szkielet = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Szkielet, AktualnaBron.transform.position, AktualnaBron.transform.rotation);
+
+        SzkieletBroni = obsluga_broni.Szkielet;
+        SzkieletBroni.transform.parent = AktualnaBron.transform;
+        obsluga_szkieletu = SzkieletBroni.GetComponent<ObslugaSzkieletu>();
+
+        Pamiec.WczytajKolor(nazwabroni, "Szkielet");
+        obsluga_szkieletu.kolorszkieltu = Pamiec.kolorbroni;
+        obsluga_szkieletu.MojKolorSzkieletu();
+
+        if (tymczasowabron.GetComponent<ObslugaBroni>().Magazynek != null)
+        {
+            MagazynekBroni = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Magazynek, obsluga_szkieletu.Miejsce_Na_Magazynek.transform.position, obsluga_szkieletu.Miejsce_Na_Magazynek.transform.rotation);
+            obsluga_broni.Magazynek = MagazynekBroni;
+            MagazynekBroni.transform.parent = AktualnaBron.transform;
+            obsluga_magazynka = MagazynekBroni.GetComponent<Obslugamagazynka>();
+            Pamiec.WczytajKolor(nazwabroni, "Magazynek");
+            obsluga_magazynka.kolormagazynka = Pamiec.kolorbroni;
+            obsluga_magazynka.MojKolorMagazynka();
+        }
+        else
+        {
+            Debug.Log("Nie ma magazynka");
+        }
+        if(tymczasowabron.GetComponent<ObslugaBroni>().Lufa !=null)
+        {
+            LufaBroni = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Lufa, obsluga_szkieletu.Miejsce_Na_Lufe.transform.position, obsluga_szkieletu.Miejsce_Na_Lufe.transform.rotation);
+            obsluga_broni.Lufa = LufaBroni;
+            LufaBroni.transform.parent = AktualnaBron.transform;
+            obsluga_lufy = LufaBroni.GetComponent<ObslugaLufy>();
+
+            //Pamiec.WczytajKolor(nazwabroni, "Magazynek");
+            //obsluga_magazynka.kolormagazynka = Pamiec.kolorbroni;
+            //obsluga_magazynka.MojKolorMagazynka();
+        }
+        else
+        {
+            Debug.Log("Nie ma lufy");
+        }
+
+
+
+        Destroy(tymczasowabron);
     }
 }
