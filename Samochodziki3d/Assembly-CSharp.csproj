@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resources\Bron.cs" />
+    <Compile Include="Assets\Resources\KupionaBron.cs" />
     <Compile Include="Assets\Resources\ObslugaBroni.cs" />
     <Compile Include="Assets\Resources\PobieranieBroni.cs" />
     <Compile Include="Assets\Resources\Sklep.cs" />
@@ -84,7 +85,7 @@
     <Compile Include="Assets\Skrypty\TworzenieBota.cs" />
     <Compile Include="Assets\Skrypty\ZaradzanieBotami.cs" />
     <Compile Include="Assets\UstawieniaBroni.cs" />
-    <None Include="Assets\Potta_One\OFL.txt" />
+    <None Include="Assets\Resources\Potta_One\OFL.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -32,6 +32,7 @@ public class MojaBron : MonoBehaviour
 
     string nazwabroni;
     ZapisaywanieBroni Pamiec = new ZapisaywanieBroni();
+    KupionaBron mojabron = new KupionaBron();
 
     void Start()
     {
@@ -75,18 +76,18 @@ public class MojaBron : MonoBehaviour
     }
     void PobierzBron()
     {
-        GameObject tymczasowabron = Instantiate(Resources.Load("Bronie/" + nazwabroni)) as GameObject;
-
-
         AktualnaBron = new GameObject(nazwabroni);
         AktualnaBron.transform.position = SpawnBroni.position;
         AktualnaBron.transform.rotation = SpawnBroni.rotation;
         AktualnaBron.transform.parent = SpawnBroni.transform;
 
+        mojabron.Wczytaj(0);
+
+
         AktualnaBron.AddComponent<ObslugaBroni>();
         obsluga_broni = AktualnaBron.GetComponent<ObslugaBroni>();
 
-        obsluga_broni.Szkielet = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Szkielet, AktualnaBron.transform.position, AktualnaBron.transform.rotation);
+        obsluga_broni.Szkielet = Instantiate(Resources.Load(mojabron.szkielet), AktualnaBron.transform.position, AktualnaBron.transform.rotation) as GameObject;
 
         SzkieletBroni = obsluga_broni.Szkielet;
         SzkieletBroni.transform.parent = AktualnaBron.transform;
@@ -96,9 +97,9 @@ public class MojaBron : MonoBehaviour
         obsluga_szkieletu.kolorszkieltu = Pamiec.kolorbroni;
         obsluga_szkieletu.MojKolorSzkieletu();
 
-        if (tymczasowabron.GetComponent<ObslugaBroni>().Magazynek != null)
+        if (mojabron.magazynek != null)
         {
-            MagazynekBroni = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Magazynek, obsluga_szkieletu.Miejsce_Na_Magazynek.transform.position, obsluga_szkieletu.Miejsce_Na_Magazynek.transform.rotation);
+            MagazynekBroni = Instantiate(Resources.Load(mojabron.magazynek), obsluga_szkieletu.Miejsce_Na_Magazynek.transform.position, obsluga_szkieletu.Miejsce_Na_Magazynek.transform.rotation) as GameObject;
             obsluga_broni.Magazynek = MagazynekBroni;
             MagazynekBroni.transform.parent = AktualnaBron.transform;
             obsluga_magazynka = MagazynekBroni.GetComponent<Obslugamagazynka>();
@@ -110,9 +111,9 @@ public class MojaBron : MonoBehaviour
         {
             Debug.Log("Nie ma magazynka");
         }
-        if(tymczasowabron.GetComponent<ObslugaBroni>().Lufa !=null)
+        if (mojabron.lufa != null)
         {
-            LufaBroni = Instantiate(tymczasowabron.GetComponent<ObslugaBroni>().Lufa, obsluga_szkieletu.Miejsce_Na_Lufe.transform.position, obsluga_szkieletu.Miejsce_Na_Lufe.transform.rotation);
+            LufaBroni = Instantiate(Resources.Load(mojabron.lufa), obsluga_szkieletu.Miejsce_Na_Lufe.transform.position, obsluga_szkieletu.Miejsce_Na_Lufe.transform.rotation) as GameObject;
             obsluga_broni.Lufa = LufaBroni;
             LufaBroni.transform.parent = AktualnaBron.transform;
             obsluga_lufy = LufaBroni.GetComponent<ObslugaLufy>();
@@ -125,9 +126,5 @@ public class MojaBron : MonoBehaviour
         {
             Debug.Log("Nie ma lufy");
         }
-
-
-
-        Destroy(tymczasowabron);
     }
 }

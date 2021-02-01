@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad783556f35f9dd439a4c565b136aa91, type: 3}
   m_Name: Lufa_M16
   m_EditorClassIdentifier: 
-  Nazwa_Lufy: 
+  Nazwa_Lufy: LufaM16
   Przeznaczenie_Lufy: 
   lufa: {fileID: 2206450214463494269, guid: 136efe3266706184e83039a1030ceca1, type: 3}

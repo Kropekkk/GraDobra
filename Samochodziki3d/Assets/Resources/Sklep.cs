@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class Sklep : MonoBehaviour
 {
@@ -22,14 +23,12 @@ public class Sklep : MonoBehaviour
 
     public ObslugaBroni mojabron;
 
+    public KupionaBron zapisanabron = new KupionaBron();
+    public List<Text> mojebronie;
 
-
-
-
-    private void Start()
+    public void Start()
     {
-
-
+        Policz();
     }
 
     void Update()   
@@ -106,5 +105,45 @@ public class Sklep : MonoBehaviour
     {
         TaBron.transform.rotation = Quaternion.Euler(-90, 0, 0);
         PrefabUtility.SaveAsPrefabAsset(TaBron, "Assets/Resources/Bronie/NowaBron.prefab");
+
+
+        if (MagazyekBroni.GetComponent<Obslugamagazynka>() != null)
+        {
+            mag = MagazyekBroni.GetComponent<Obslugamagazynka>();
+        }
+        if(LufaBroni.GetComponent<ObslugaLufy>()!=null)
+        {
+            lufa = LufaBroni.GetComponent<ObslugaLufy>();
+        }
+
+        //zapisanabron.SprawdzCzyZajete();
+        zapisanabron.Zapisz(zapisanabron.zajety,"NowaBron",obsluga_szkieletu.mojszkielet.Nazwa_szkieltu,mag.mojmagazynek.Nazwa_magazynka,lufa.mojalufa.Nazwa_Lufy);
+    }
+    void Policz()
+    {
+        int k = 0;
+
+        while (k<4)
+        {
+            zapisanabron.Wczytaj(k);
+            mojebronie[k].text = zapisanabron.nazwabroni;
+            k = k + 1;
+        }
+    }
+    public void Slot1()
+    {
+        zapisanabron.zajety = 0;
+    }
+    public void Slot2()
+    {
+        zapisanabron.zajety = 1;
+    }
+    public void Slot3()
+    {
+        zapisanabron.zajety = 2;
+    }
+    public void Slot4()
+    {
+        zapisanabron.zajety = 3;
     }
 }

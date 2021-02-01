@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Szkielet_AK47
   m_EditorClassIdentifier: 
   Nazwa_szkieltu: SzkieletAK78
-  JakiMagazynekPasuje: karabin
+  JakiMagazynekPasuje: Karabin
   PredkoscWystrzalu: 100
   Zasieg: 300
   damage: 25
+  bron: {fileID: 0}
+  MiejsceNaLufe: {fileID: 0}
+  MiejsceNaMagazynek: {fileID: 0}
