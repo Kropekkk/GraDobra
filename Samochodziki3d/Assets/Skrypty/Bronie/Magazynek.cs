@@ -10,5 +10,5 @@ public class Magazynek : ScriptableObject
     public string Przeznaczenie_magazynka;
 
     public int pojemnosc_magazynka;
-    public GameObject magazynek;
+    public int cena_magazynka;
 }

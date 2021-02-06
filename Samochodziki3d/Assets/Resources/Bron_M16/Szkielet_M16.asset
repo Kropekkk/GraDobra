@@ -17,8 +17,4 @@ MonoBehaviour:
   PredkoscWystrzalu: 100
   Zasieg: 300
   damage: 20
-  bron: {fileID: 3730749922602636237, guid: 4c42a9b5405dfbb48b1e6be644ff0cef, type: 3}
-  MiejsceNaLufe: {fileID: 8067809819194091157, guid: 566c8f2395acc424d9a9ecd7ff2dbc56,
-    type: 3}
-  MiejsceNaMagazynek: {fileID: 4630982035596682330, guid: 6077778dfbf856242931543eea40d796,
-    type: 3}
+  cena_szkieletu: 100

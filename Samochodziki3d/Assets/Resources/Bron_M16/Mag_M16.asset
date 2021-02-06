@@ -15,5 +15,4 @@ MonoBehaviour:
   Nazwa_magazynka: MagazynekM16
   Przeznaczenie_magazynka: Karabin
   pojemnosc_magazynka: 30
-  magazynek: {fileID: 344074979978969618, guid: 79ac0692ee503124cbbeb02a6199780f,
-    type: 3}
+  cena_magazynka: 50

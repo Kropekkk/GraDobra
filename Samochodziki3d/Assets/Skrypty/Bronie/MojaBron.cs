@@ -34,8 +34,12 @@ public class MojaBron : MonoBehaviour
     ZapisaywanieBroni Pamiec = new ZapisaywanieBroni();
     KupionaBron mojabron = new KupionaBron();
 
+    int id;
+
     void Start()
     {
+        id = PlayerPrefs.GetInt("IDBroni");
+
         nazwabroni = PlayerPrefs.GetString("AktualnaBron");
         PobierzBron();
 
@@ -81,7 +85,7 @@ public class MojaBron : MonoBehaviour
         AktualnaBron.transform.rotation = SpawnBroni.rotation;
         AktualnaBron.transform.parent = SpawnBroni.transform;
 
-        mojabron.Wczytaj(0);
+        mojabron.Wczytaj(id);
 
 
         AktualnaBron.AddComponent<ObslugaBroni>();
@@ -126,5 +130,7 @@ public class MojaBron : MonoBehaviour
         {
             Debug.Log("Nie ma lufy");
         }
+
+        damage = obsluga_szkieletu.damage_szkieletu;
     }
 }

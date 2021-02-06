@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TworzenieBota
-{
+{ 
     public float zycie;
     private float wysokosc, szerokosc, dlugosc;
     public int szybkosc;

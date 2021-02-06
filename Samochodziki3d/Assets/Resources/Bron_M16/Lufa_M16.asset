@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nazwa_Lufy: LufaM16
   Przeznaczenie_Lufy: 
-  lufa: {fileID: 2206450214463494269, guid: 136efe3266706184e83039a1030ceca1, type: 3}
+  cena_lufy: 30

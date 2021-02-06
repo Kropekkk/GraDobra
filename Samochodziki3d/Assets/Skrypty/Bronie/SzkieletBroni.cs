@@ -10,7 +10,5 @@ public class SzkieletBroni : ScriptableObject
     public int PredkoscWystrzalu;
     public int Zasieg;
     public int damage;
-    public GameObject bron;
-    public Transform MiejsceNaLufe;
-    public Transform MiejsceNaMagazynek;
+    public int cena_szkieletu;
 }

@@ -18,7 +18,6 @@ public class KupionaBron
         PlayerPrefs.SetString("NazwaSzkieletu"+id, sz);
         PlayerPrefs.SetString("NazwaMagazynka"+id, ma);
         PlayerPrefs.SetString("NazwaLufy"+id, lu);
-        Debug.Log(PlayerPrefs.GetString("NazwaBroni" + id));
     }
     public void Wczytaj(int id)
     {
@@ -61,5 +60,13 @@ public class KupionaBron
                 licz = 3;
             }
         }
+    }
+    public void UsunDane(int id)
+    {
+        PlayerPrefs.DeleteKey("NazwaBroni" + id);
+        PlayerPrefs.DeleteKey("NazwaSzkieletu" + id);
+        PlayerPrefs.DeleteKey("NazwaMagazynka" + id);
+        PlayerPrefs.DeleteKey("NazwaLufy" + id);
+
     }
 }

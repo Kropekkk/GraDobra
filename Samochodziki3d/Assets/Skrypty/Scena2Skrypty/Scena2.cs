@@ -13,7 +13,7 @@ public class Scena2 : MonoBehaviour
     public Kolor kolor_Postaci, kolor_Oczy_L, kolor_Oczy_P, kolor_Brody,kolor_Kapuletek;
     float obrot = 0;
     bool lewo = true;
-    public GameObject Panel1, Panel2,Panel3;
+    public GameObject Panel1, Panel2,Panel3,Panel4;
     int pieniadze, amunicja, bron_level;
     public Slider Czerwony,Zielony,Niebieski;
     public GameObject Wieszaki;
@@ -212,12 +212,24 @@ public class Scena2 : MonoBehaviour
     public void WlasciwySklep()
     {
         Panel1.SetActive(false);
-        Panel3.SetActive(true);
+        //Panel3.SetActive(true);
+        SceneManager.LoadScene(2);
+        //Debug.Log("ten");
     }
     public void WrocZWlasciwegoSklepu()
     {
         Panel1.SetActive(true);
         Panel3.SetActive(false);
+    }
+    public void Ubrania()
+    {
+        Panel1.SetActive(false);
+        Panel4.SetActive(true);
+    }
+    public void WrocZubran()
+    {
+        Panel4.SetActive(false);
+        Panel1.SetActive(true);
     }
     public void KupBron()
     {

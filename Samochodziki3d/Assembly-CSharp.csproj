@@ -66,7 +66,6 @@
     <Compile Include="Assets\Resources\KupionaBron.cs" />
     <Compile Include="Assets\Resources\ObslugaBroni.cs" />
     <Compile Include="Assets\Resources\PobieranieBroni.cs" />
-    <Compile Include="Assets\Resources\Sklep.cs" />
     <Compile Include="Assets\Resources\ZapisaywanieBroni.cs" />
     <Compile Include="Assets\Skrypty\Bot.cs" />
     <Compile Include="Assets\Skrypty\Bronie\Lufa.cs" />
@@ -82,8 +81,10 @@
     <Compile Include="Assets\Skrypty\Ruch.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Kolor.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Scena2.cs" />
+    <Compile Include="Assets\Skrypty\Sklep\Sklep.cs" />
     <Compile Include="Assets\Skrypty\TworzenieBota.cs" />
     <Compile Include="Assets\Skrypty\ZaradzanieBotami.cs" />
+    <Compile Include="Assets\TworzenieBroni.cs" />
     <Compile Include="Assets\UstawieniaBroni.cs" />
     <None Include="Assets\Resources\Potta_One\OFL.txt" />
     <Reference Include="UnityEngine">

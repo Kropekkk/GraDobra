@@ -11,8 +11,6 @@ public class UstawieniaBroni : MonoBehaviour
     public GameObject[] listamoichbroni;
 
     public List<string> wszystkienazwy;
-
-
     int tymczasowyindex;
     public GameObject MojaReka;
     public GameObject BronWRece;
@@ -149,6 +147,7 @@ public class UstawieniaBroni : MonoBehaviour
     public void UstawGłownaBron()
     {
         PlayerPrefs.SetString("AktualnaBron",listamoichbroni[tymczasowyindex].name);
+        PlayerPrefs.SetInt("IDBroni",tymczasowyindex);
         GlownaBron();
     }
     void Ktoraczesc()
@@ -198,8 +197,7 @@ public class UstawieniaBroni : MonoBehaviour
 
 
             listamoichbroni[i].AddComponent<ObslugaBroni>();
-
-            
+            Debug.Log(mojebronie.szkielet);
             listamoichbroni[i].GetComponent<ObslugaBroni>().Szkielet = Instantiate(Resources.Load(mojebronie.szkielet), wieszakinabronie[i].transform.position, wieszakinabronie[i].transform.rotation) as GameObject;
             GameObject mojszkielet = listamoichbroni[i].GetComponent<ObslugaBroni>().Szkielet;
             mojszkielet.transform.parent = listamoichbroni[i].transform;
@@ -212,15 +210,18 @@ public class UstawieniaBroni : MonoBehaviour
 
             if (mojebronie.magazynek != null)
             {
-                GameObject mojmagazynek = Instantiate(Resources.Load(mojebronie.magazynek), obsluga_szkieletu.Miejsce_Na_Magazynek.transform.position, obsluga_szkieletu.Miejsce_Na_Magazynek.transform.rotation) as GameObject;
-                mojmagazynek.transform.parent = listamoichbroni[i].transform;
-                listamoichbroni[i].GetComponent<ObslugaBroni>().Magazynek = mojmagazynek;
+                if(mojebronie.magazynek!="")
+                {
+                    GameObject mojmagazynek = Instantiate(Resources.Load(mojebronie.magazynek), obsluga_szkieletu.Miejsce_Na_Magazynek.transform.position, obsluga_szkieletu.Miejsce_Na_Magazynek.transform.rotation) as GameObject;
+                    mojmagazynek.transform.parent = listamoichbroni[i].transform;
+                    listamoichbroni[i].GetComponent<ObslugaBroni>().Magazynek = mojmagazynek;
 
-                Obslugamagazynka obsluga_magazynka = mojmagazynek.GetComponent<Obslugamagazynka>();
+                    Obslugamagazynka obsluga_magazynka = mojmagazynek.GetComponent<Obslugamagazynka>();
 
-                Pamiec.WczytajKolor(mojebronie.lista[i], "Magazynek");
-                obsluga_magazynka.kolormagazynka = Pamiec.kolorbroni;
-                obsluga_magazynka.MojKolorMagazynka();
+                    Pamiec.WczytajKolor(mojebronie.lista[i], "Magazynek");
+                    obsluga_magazynka.kolormagazynka = Pamiec.kolorbroni;
+                    obsluga_magazynka.MojKolorMagazynka();
+                } 
             }
             else
             {
@@ -228,9 +229,12 @@ public class UstawieniaBroni : MonoBehaviour
             }
             if (mojebronie.lufa != null)
             {
-                GameObject mojalufa = Instantiate(Resources.Load(mojebronie.lufa), obsluga_szkieletu.Miejsce_Na_Lufe.transform.position, obsluga_szkieletu.Miejsce_Na_Lufe.transform.rotation) as GameObject;
-                mojalufa.transform.parent = listamoichbroni[i].transform;
-                listamoichbroni[i].GetComponent<ObslugaBroni>().Lufa = mojalufa;
+                if(mojebronie.lufa !="")
+                {
+                    GameObject mojalufa = Instantiate(Resources.Load(mojebronie.lufa), obsluga_szkieletu.Miejsce_Na_Lufe.transform.position, obsluga_szkieletu.Miejsce_Na_Lufe.transform.rotation) as GameObject;
+                    mojalufa.transform.parent = listamoichbroni[i].transform;
+                    listamoichbroni[i].GetComponent<ObslugaBroni>().Lufa = mojalufa;
+                }        
             }
             else
             {
