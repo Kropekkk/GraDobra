@@ -7,6 +7,10 @@ public class Ruch : MonoBehaviour
 {
     float x, z;
     public CharacterController gracz;
+
+    [Header("Tymczasowe")]
+    [SerializeField]
+    float mojapredkosc;
     
     public Transform Czydotyk;
     float odl = 0.4f;
@@ -18,12 +22,16 @@ public class Ruch : MonoBehaviour
     public GameObject Slot1, Slot2;
 
     bool czy;
+    public Animator animacja;
+
+    public SkinnedMeshRenderer ab, ac;
 
     void Start()
     {
-        PobierzMojaPostac();
+        //PobierzMojaPostac();
+        ab.material.color = new Color(1, 0, 0);
+        ac.material.color = new Color(0, 1, 0);
     }
-
     void Update()
     {
         czy = Physics.CheckSphere(Czydotyk.position, odl, dotyk);
@@ -32,7 +40,7 @@ public class Ruch : MonoBehaviour
         z = Input.GetAxis("Vertical");
 
         Vector3 ruch = transform.right * x + transform.forward * z;
-        gracz.Move(ruch * 10f * Time.deltaTime);
+        gracz.Move(ruch * mojapredkosc * Time.deltaTime);
 
         if(Input.GetButton("Jump") && czy)
         {
@@ -41,6 +49,9 @@ public class Ruch : MonoBehaviour
         
         predkosc.y += -9.81f * Time.deltaTime;
         gracz.Move(predkosc * Time.deltaTime);
+
+        animacja.SetBool("bieg",Input.GetAxis("Vertical") !=0 || Input.GetAxis("Horizontal")!=0);
+        animacja.SetBool("skok", !czy);
 
         if(Input.GetKey("i"))
         {

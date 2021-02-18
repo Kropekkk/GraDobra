@@ -194,7 +194,8 @@ public class Scena2 : MonoBehaviour
     }
     public void Wystartuj()
     {
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
     public void Sklep()
     {

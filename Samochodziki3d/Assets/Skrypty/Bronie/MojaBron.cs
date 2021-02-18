@@ -46,10 +46,7 @@ public class MojaBron : MonoBehaviour
         amunicja = PlayerPrefs.GetInt("MojeAmmo");
 
         amunicja_T.text = "Amunicja: " + amunicja;
-
     }
-
-
     void Update()
     {
         if (Input.GetButton("Fire1") && Time.time >= czas && amunicja > 0)
@@ -77,6 +74,7 @@ public class MojaBron : MonoBehaviour
                 jaki.Zycie(damage);
             }
         }
+        obsluga_szkieletu.Strzal();
     }
     void PobierzBron()
     {
@@ -101,7 +99,7 @@ public class MojaBron : MonoBehaviour
         obsluga_szkieletu.kolorszkieltu = Pamiec.kolorbroni;
         obsluga_szkieletu.MojKolorSzkieletu();
 
-        if (mojabron.magazynek != null)
+        if (mojabron.magazynek != "")
         {
             MagazynekBroni = Instantiate(Resources.Load(mojabron.magazynek), obsluga_szkieletu.Miejsce_Na_Magazynek.transform.position, obsluga_szkieletu.Miejsce_Na_Magazynek.transform.rotation) as GameObject;
             obsluga_broni.Magazynek = MagazynekBroni;
@@ -115,8 +113,9 @@ public class MojaBron : MonoBehaviour
         {
             Debug.Log("Nie ma magazynka");
         }
-        if (mojabron.lufa != null)
+        if (mojabron.lufa != "")
         {
+            Debug.Log(mojabron.lufa);
             LufaBroni = Instantiate(Resources.Load(mojabron.lufa), obsluga_szkieletu.Miejsce_Na_Lufe.transform.position, obsluga_szkieletu.Miejsce_Na_Lufe.transform.rotation) as GameObject;
             obsluga_broni.Lufa = LufaBroni;
             LufaBroni.transform.parent = AktualnaBron.transform;

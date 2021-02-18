@@ -187,6 +187,7 @@ public class Sklep : MonoBehaviour
             UsunTaBron();
             zapisanabron.Wczytaj(id);
 
+            Debug.Log(zapisanabron.szkielet);
             SzkieletBroni = Instantiate(Resources.Load(zapisanabron.szkielet),MiejsceBroni.position,MiejsceBroni.rotation) as GameObject;
             TworzenieSzkieletu();         
 

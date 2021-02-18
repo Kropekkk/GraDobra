@@ -48,7 +48,7 @@ public class KupionaBron
     public void SprawdzCzyZajete()
     {
         int licz = 0;
-        while (licz< 2)//2 to sloty
+        while (licz< 3)//2 to sloty
         {
             if (PlayerPrefs.GetString("NazwaBroni" + licz) != "")
             {
@@ -57,7 +57,7 @@ public class KupionaBron
             else
             {
                 zajety = licz;
-                licz = 3;
+                licz = 4;
             }
         }
     }

@@ -11,6 +11,8 @@ public class ObslugaSzkieletu : MonoBehaviour
     public Transform Miejsce_Na_Magazynek;
     public Transform Miejsce_Na_Lufe;
 
+    public ParticleSystem blysk;
+
     public int damage_szkieletu;
 
     public void Awake()
@@ -20,8 +22,12 @@ public class ObslugaSzkieletu : MonoBehaviour
 
     public void MojKolorSzkieletu()
     {
-        
         wygladszkieltu.material.color = kolorszkieltu;
         //wygladszkieltu.sharedMaterial.color = kolorszkieltu;
+    }
+    public void Strzal()
+    {
+        blysk.Play();
+        Debug.Log("dziala");
     }
 }

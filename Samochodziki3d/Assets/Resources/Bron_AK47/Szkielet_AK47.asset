@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db2eaa8d880f2e47ae4f9d8fdfdd168, type: 3}
   m_Name: Szkielet_AK47
   m_EditorClassIdentifier: 
-  Nazwa_szkieltu: SzkieletAK78
+  Nazwa_szkieltu: SzkieletAK47
   JakiMagazynekPasuje: Karabin
   PredkoscWystrzalu: 100
   Zasieg: 300
