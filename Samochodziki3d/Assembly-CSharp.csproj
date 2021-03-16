@@ -65,12 +65,8 @@
     <Compile Include="Assets\Inne\Testskrypt.cs" />
     <Compile Include="Assets\Inne\TworzenieBroni.cs" />
     <Compile Include="Assets\Inne\UstawieniaBroni.cs" />
-    <Compile Include="Assets\Resources\Bron.cs" />
-    <Compile Include="Assets\Resources\KupionaBron.cs" />
-    <Compile Include="Assets\Resources\ObslugaBroni.cs" />
-    <Compile Include="Assets\Resources\PobieranieBroni.cs" />
-    <Compile Include="Assets\Resources\ZapisaywanieBroni.cs" />
     <Compile Include="Assets\Skrypty\Bot.cs" />
+    <Compile Include="Assets\Skrypty\Bron.cs" />
     <Compile Include="Assets\Skrypty\Bronie\Lufa.cs" />
     <Compile Include="Assets\Skrypty\Bronie\Magazynek.cs" />
     <Compile Include="Assets\Skrypty\Bronie\MojaBron.cs" />
@@ -80,15 +76,19 @@
     <Compile Include="Assets\Skrypty\Bronie\SzkieletBroni.cs" />
     <Compile Include="Assets\Skrypty\Gra.cs" />
     <Compile Include="Assets\Skrypty\Kamera.cs" />
+    <Compile Include="Assets\Skrypty\KupionaBron.cs" />
     <Compile Include="Assets\Skrypty\Mojapostac.cs" />
+    <Compile Include="Assets\Skrypty\ObslugaBroni.cs" />
+    <Compile Include="Assets\Skrypty\PobieranieBroni.cs" />
     <Compile Include="Assets\Skrypty\Ruch.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Kolor.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Scena2.cs" />
     <Compile Include="Assets\Skrypty\ScenaGry\MenadzerGry.cs" />
     <Compile Include="Assets\Skrypty\Sklep\Sklep.cs" />
     <Compile Include="Assets\Skrypty\TworzenieBota.cs" />
+    <Compile Include="Assets\Skrypty\ZapisaywanieBroni.cs" />
     <Compile Include="Assets\Skrypty\ZaradzanieBotami.cs" />
-    <None Include="Assets\Inne\Potta_One\OFL.txt" />
+    <None Include="Assets\Inne\Czcionka\OFL.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

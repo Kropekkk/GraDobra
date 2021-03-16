@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ScenaGry.unity
     guid: c1273fb4f52700e419a310a0ad311975
+  - enabled: 1
+    path: Assets/Scenes/sCENA5.unity
+    guid: 725284464ff47dc4f8b6c45f3b7e9845
   m_configObjects: {}

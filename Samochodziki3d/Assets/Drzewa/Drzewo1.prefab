@@ -668,6 +668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7883302516182284988}
   - component: {fileID: 7639232998020467054}
+  - component: {fileID: 179848371535520565}
   m_Layer: 0
   m_Name: Drzewo1
   m_TagString: Untagged
@@ -705,8 +706,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7362485382221176838}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 1.8075848, y: 9.663916, z: -0.19565201}
-  m_Size: 21.06882
+  m_LocalReferencePoint: {x: 1.8075848, y: 7.293848, z: -0.19565201}
+  m_Size: 24.587696
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -726,6 +727,20 @@ LODGroup:
     renderers:
     - renderer: {fileID: 6191859289133468568}
   m_Enabled: 1
+--- !u!136 &179848371535520565
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7362485382221176838}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 20
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7544532057523112155
 GameObject:
   m_ObjectHideFlags: 0

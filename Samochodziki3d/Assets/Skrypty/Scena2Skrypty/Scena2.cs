@@ -6,21 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class Scena2 : MonoBehaviour
 {
-    public MeshRenderer kolory_postaci,OkoL_postaci,OkoP_postaci,Broda_postaci,Kapelutek_postaci;
+    //public MeshRenderer kolory_postaci,OkoL_postaci,OkoP_postaci,Broda_postaci,Kapelutek_postaci;
+    public SkinnedMeshRenderer kolory_postaci, OkoL_postaci, OkoP_postaci, Broda_postaci, Kapelutek_postaci;
     private float R, G, B,A;
     public Text Wyswietl,MojeMonety,MojeAmmo,MojLevelBroni,ZmiennyLevel;
     int liczba = 0;
     public Kolor kolor_Postaci, kolor_Oczy_L, kolor_Oczy_P, kolor_Brody,kolor_Kapuletek;
-    float obrot = 0;
+    float obrot = -180;
     bool lewo = true;
     public GameObject Panel1, Panel2,Panel3,Panel4;
     int pieniadze, amunicja, bron_level;
     public Slider Czerwony,Zielony,Niebieski;
     public GameObject Wieszaki;
+    public Animator animacja;
+    public UstawieniaBroni ustawieniamoje;
+    bool czy;
 
     private void Start()
-    {
-        if(PlayerPrefs.GetInt("MojaBron")==0)
+    { 
+        if (PlayerPrefs.GetInt("MojaBron")==0)
         {
             PlayerPrefs.SetInt("MojaBron", 1);
             PlayerPrefs.SetInt("MojeAmmo", 120);
@@ -33,6 +37,15 @@ public class Scena2 : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(ustawieniamoje.MojaReka==null)
+        {
+            animacja.SetBool("bron", false);
+        }
+        else
+        {
+            animacja.SetBool("bron", true);
+        }
+        
         ObrotPostaci();
     }
     void Zmien_Kolor()
@@ -110,7 +123,7 @@ public class Scena2 : MonoBehaviour
         liczba += 1;
         switch (liczba)
         {
-            case 1:
+            case 1:   
                 Wyswietl.text = "Cialo";
                 R = kolor_Postaci.R;
                 G = kolor_Postaci.G;
@@ -172,7 +185,7 @@ public class Scena2 : MonoBehaviour
     }
     void ObrotPostaci()
     {
-        if (obrot < 90 && lewo)
+        if (obrot < -90 && lewo)
         {
             obrot += 1f;
             transform.rotation = Quaternion.Euler(0f, obrot, 0f);
@@ -181,7 +194,7 @@ public class Scena2 : MonoBehaviour
         {
             lewo = false;
             obrot -= 1f;
-            if (obrot < -90f)
+            if (obrot < -270f)
             {
                 lewo = true;
             }
