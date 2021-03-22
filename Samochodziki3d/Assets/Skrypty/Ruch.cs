@@ -17,7 +17,7 @@ public class Ruch : MonoBehaviour
     public LayerMask dotyk;
     Vector3 predkosc;
     public float skok = 3f;
-    public MeshRenderer KolorPostaci,OkoL_postaci, OkoP_postaci, Broda_postaci;
+    public SkinnedMeshRenderer KolorPostaci,OkoL_postaci, OkoP_postaci, Broda_postaci;
 
     public GameObject Slot1, Slot2;
 

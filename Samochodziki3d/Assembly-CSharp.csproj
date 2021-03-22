@@ -83,7 +83,6 @@
     <Compile Include="Assets\Skrypty\Ruch.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Kolor.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Scena2.cs" />
-    <Compile Include="Assets\Skrypty\ScenaGry\MenadzerGry.cs" />
     <Compile Include="Assets\Skrypty\Sklep\Sklep.cs" />
     <Compile Include="Assets\Skrypty\TworzenieBota.cs" />
     <Compile Include="Assets\Skrypty\ZapisaywanieBroni.cs" />

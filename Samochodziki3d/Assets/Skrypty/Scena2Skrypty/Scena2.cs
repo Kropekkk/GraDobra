@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Scena2 : MonoBehaviour
 {
-    //public MeshRenderer kolory_postaci,OkoL_postaci,OkoP_postaci,Broda_postaci,Kapelutek_postaci;
     public SkinnedMeshRenderer kolory_postaci, OkoL_postaci, OkoP_postaci, Broda_postaci, Kapelutek_postaci;
     private float R, G, B,A;
     public Text Wyswietl,MojeMonety,MojeAmmo,MojLevelBroni,ZmiennyLevel;
@@ -20,7 +19,6 @@ public class Scena2 : MonoBehaviour
     public GameObject Wieszaki;
     public Animator animacja;
     public UstawieniaBroni ustawieniamoje;
-    bool czy;
 
     private void Start()
     { 
@@ -183,24 +181,6 @@ public class Scena2 : MonoBehaviour
         pieniadze = PlayerPrefs.GetInt("Pieniadze");
         kolor_Kapuletek = new Kolor(0f, 0f, 1f);
     }
-    void ObrotPostaci()
-    {
-        if (obrot < -90 && lewo)
-        {
-            obrot += 1f;
-            transform.rotation = Quaternion.Euler(0f, obrot, 0f);
-        }
-        else
-        {
-            lewo = false;
-            obrot -= 1f;
-            if (obrot < -270f)
-            {
-                lewo = true;
-            }
-            transform.rotation = Quaternion.Euler(0f, obrot, 0f);
-        }
-    }
     public void Wyjdz()
     {
         Application.Quit();
@@ -228,7 +208,6 @@ public class Scena2 : MonoBehaviour
         Panel1.SetActive(false);
         //Panel3.SetActive(true);
         SceneManager.LoadScene(2);
-        //Debug.Log("ten");
     }
     public void WrocZWlasciwegoSklepu()
     {
@@ -287,5 +266,23 @@ public class Scena2 : MonoBehaviour
     {
         B = k;
         Zmien_Kolor();
+    }
+    void ObrotPostaci()
+    {
+        if (obrot < -90 && lewo)
+        {
+            obrot += 1f;
+            transform.rotation = Quaternion.Euler(0f, obrot, 0f);
+        }
+        else
+        {
+            lewo = false;
+            obrot -= 1f;
+            if (obrot < -270f)
+            {
+                lewo = true;
+            }
+            transform.rotation = Quaternion.Euler(0f, obrot, 0f);
+        }
     }
 }

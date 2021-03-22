@@ -1162,8 +1162,8 @@ MonoBehaviour:
   Slot1: {fileID: 0}
   Slot2: {fileID: 0}
   animacja: {fileID: 1910668393}
-  ab: {fileID: 638446809}
-  ac: {fileID: 1880126841}
+  ab: {fileID: 1880126841}
+  ac: {fileID: 638446809}
 --- !u!4 &1910668396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7545301813315607846, guid: 44ccda07a1a8fca4fb25dbb327e64764,
