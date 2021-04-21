@@ -7,13 +7,13 @@ public class UstawieniaBroni : MonoBehaviour
 {   
     [Header("Miejsce Na Bronie")]
     public Transform[] wieszakinabronie;
+
     [Header("Bronie")]
     public GameObject[] listamoichbroni;
 
     public List<string> wszystkienazwy;
     int tymczasowyindex;
     public GameObject MojaReka;
-    public GameObject BronWRece;
 
     ZapisaywanieBroni Pamiec = new ZapisaywanieBroni();
 
@@ -81,6 +81,8 @@ public class UstawieniaBroni : MonoBehaviour
                 Pamiec.ZapiszKolor(R,G,B,listamoichbroni[tymczasowyindex].name,"Szkielet");
                 listamoichbroni[tymczasowyindex].GetComponent<ObslugaBroni>().Szkielet.GetComponent<ObslugaSzkieletu>().kolorszkieltu = new Color(R, G, B);
                 listamoichbroni[tymczasowyindex].GetComponent<ObslugaBroni>().Szkielet.GetComponent<ObslugaSzkieletu>().MojKolorSzkieletu();
+                Debug.Log("rwar");
+                Debug.Log(R);
                 break;
             case 2:
                 obsluga_magazynka.kolormagazynka = new Color(R, G, B);
@@ -113,7 +115,7 @@ public class UstawieniaBroni : MonoBehaviour
             MojaReka = Instantiate(listamoichbroni[tymczasowyindex],transform.position,transform.rotation);
             MojaReka.transform.parent = transform;
             KoloryTejBroni();
-            if(Cozmieniam.text=="")
+            if (Cozmieniam.text=="")
             {
                 Zmien_Kolor();
             }
@@ -142,8 +144,9 @@ public class UstawieniaBroni : MonoBehaviour
             Takutalnabron.text = "Ustaw Broń";
         }
     }
-    public void UstawGłownaBron()
+    public void UstawGlownaBron()
     {
+        
         PlayerPrefs.SetString("AktualnaBron",listamoichbroni[tymczasowyindex].name);
         PlayerPrefs.SetInt("IDBroni",tymczasowyindex);
         GlownaBron();

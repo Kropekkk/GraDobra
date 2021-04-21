@@ -288,7 +288,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1949429315}
+      - m_Target: {fileID: 345272330}
         m_MethodName: Kolor_G
         m_Mode: 0
         m_Arguments:
@@ -1216,7 +1216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308234413}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.7368946, y: 4.1411934, z: -11.242439}
+  m_LocalPosition: {x: 4.7368946, y: 3.141193, z: -11.242439}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1646802875}
@@ -1499,7 +1499,6 @@ MonoBehaviour:
   - {fileID: 0}
   wszystkienazwy: []
   MojaReka: {fileID: 0}
-  BronWRece: {fileID: 0}
   obsluga_szkieletu: {fileID: 0}
   obsluga_magazynka: {fileID: 0}
   obsluga_lufy: {fileID: 0}
@@ -2603,7 +2602,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1949429315}
+      - m_Target: {fileID: 345272330}
         m_MethodName: Kolor_R
         m_Mode: 0
         m_Arguments:
@@ -3558,7 +3557,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1949429315}
+      - m_Target: {fileID: 345272330}
         m_MethodName: Zmien_Kolor
         m_Mode: 1
         m_Arguments:
@@ -3688,8 +3687,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1949429315}
-        m_MethodName: "UstawG\u0142ownaBron"
+      - m_Target: {fileID: 345272330}
+        m_MethodName: UstawGlownaBron
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4217,7 +4216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873532720}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.7368946, y: 3.1411934, z: -11.242439}
+  m_LocalPosition: {x: 4.7368946, y: 2.141193, z: -11.242439}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1646802875}
@@ -4882,7 +4881,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1949429315}
+      - m_Target: {fileID: 345272330}
         m_MethodName: Kolor_B
         m_Mode: 0
         m_Arguments:
@@ -5053,7 +5052,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150792102}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.7368946, y: 5.1411934, z: -11.242439}
+  m_LocalPosition: {x: 4.7368946, y: 4.141193, z: -11.242439}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1646802875}
@@ -5699,7 +5698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 609132561}
+      - m_Target: {fileID: 558755053}
         m_MethodName: WrocZeSklepu
         m_Mode: 1
         m_Arguments:
@@ -8258,13 +8257,9 @@ MonoBehaviour:
   - {fileID: 1150792103}
   - {fileID: 308234414}
   - {fileID: 873532721}
-  listamoichbroni:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  listamoichbroni: []
   wszystkienazwy: []
   MojaReka: {fileID: 0}
-  BronWRece: {fileID: 0}
   obsluga_szkieletu: {fileID: 0}
   obsluga_magazynka: {fileID: 0}
   obsluga_lufy: {fileID: 0}

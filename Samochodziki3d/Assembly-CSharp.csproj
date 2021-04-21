@@ -76,7 +76,6 @@
     <Compile Include="Assets\Skrypty\KupionaBron.cs" />
     <Compile Include="Assets\Skrypty\Mojapostac.cs" />
     <Compile Include="Assets\Skrypty\ObslugaBroni.cs" />
-    <Compile Include="Assets\Skrypty\PobieranieBroni.cs" />
     <Compile Include="Assets\Skrypty\Ruch.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Kolor.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Scena2.cs" />

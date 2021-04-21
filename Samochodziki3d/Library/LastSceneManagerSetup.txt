@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/ScenaGry.unity
+- path: Assets/Scenes/Wybor.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

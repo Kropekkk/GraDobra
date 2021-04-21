@@ -21,12 +21,13 @@ public class Scena2 : MonoBehaviour
     public UstawieniaBroni ustawieniamoje;
 
     private void Start()
-    { 
+    {
+        PlayerPrefs.SetInt("MojaBron", 0);
         if (PlayerPrefs.GetInt("MojaBron")==0)
         {
             PlayerPrefs.SetInt("MojaBron", 1);
             PlayerPrefs.SetInt("MojeAmmo", 120);
-            PlayerPrefs.SetInt("Pieniadze", 10);
+            PlayerPrefs.SetInt("Pieniadze", 1000);
             PlayerPrefs.SetString("AktualnaBron", "M16");
         }
         WczytajKoloryPostaci();
