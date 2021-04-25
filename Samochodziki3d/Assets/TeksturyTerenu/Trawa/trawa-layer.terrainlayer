@@ -7,7 +7,7 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: trawa-layer
-  m_DiffuseTexture: {fileID: 2800000, guid: 0e51060c9ab7b274d94c217bb8914cbb, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: ce91291964274ca49abc801527c61389, type: 3}
   m_NormalMapTexture: {fileID: 2800000, guid: de68e63768c79f8449018bf55a97cb80, type: 3}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 2, y: 2}
