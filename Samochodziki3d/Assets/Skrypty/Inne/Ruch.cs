@@ -54,7 +54,7 @@ public class Ruch : MonoBehaviour
 
         animacja.SetBool("bieg",Input.GetAxis("Vertical") !=0 || Input.GetAxis("Horizontal")!=0);
         animacja.SetBool("skok", !czy);
-        animacja.SetBool("bron", czybron);
+        //animacja.SetBool("bron", czybron);
 
         if(Input.GetKey("i"))
         {

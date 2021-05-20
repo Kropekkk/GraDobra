@@ -62,8 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Skrypty\Bot.cs" />
-    <Compile Include="Assets\Skrypty\Bron.cs" />
+    <Compile Include="Assets\Moby\OWCA\Owca.cs" />
+    <Compile Include="Assets\Skrypty\Boty\Bot.cs" />
+    <Compile Include="Assets\Skrypty\Boty\TworzenieBota.cs" />
+    <Compile Include="Assets\Skrypty\Boty\ZaradzanieBotami.cs" />
     <Compile Include="Assets\Skrypty\Bronie\Lufa.cs" />
     <Compile Include="Assets\Skrypty\Bronie\Magazynek.cs" />
     <Compile Include="Assets\Skrypty\Bronie\MojaBron.cs" />
@@ -72,18 +74,19 @@
     <Compile Include="Assets\Skrypty\Bronie\Obslugamagazynka.cs" />
     <Compile Include="Assets\Skrypty\Bronie\SzkieletBroni.cs" />
     <Compile Include="Assets\Skrypty\Gra.cs" />
-    <Compile Include="Assets\Skrypty\Kamera.cs" />
-    <Compile Include="Assets\Skrypty\KupionaBron.cs" />
-    <Compile Include="Assets\Skrypty\Mojapostac.cs" />
-    <Compile Include="Assets\Skrypty\ObslugaBroni.cs" />
-    <Compile Include="Assets\Skrypty\Ruch.cs" />
+    <Compile Include="Assets\Skrypty\Inne\Bron.cs" />
+    <Compile Include="Assets\Skrypty\Inne\Kamera.cs" />
+    <Compile Include="Assets\Skrypty\Inne\KupionaBron.cs" />
+    <Compile Include="Assets\Skrypty\Inne\Mojapostac.cs" />
+    <Compile Include="Assets\Skrypty\Inne\ObslugaBroni.cs" />
+    <Compile Include="Assets\Skrypty\Inne\Ruch.cs" />
+    <Compile Include="Assets\Skrypty\Inne\UstawieniaBroni.cs" />
+    <Compile Include="Assets\Skrypty\Inne\ZapisaywanieBroni.cs" />
+    <Compile Include="Assets\Skrypty\Rozgrywka.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Kolor.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Scena2.cs" />
     <Compile Include="Assets\Skrypty\Sklep\Sklep.cs" />
-    <Compile Include="Assets\Skrypty\TworzenieBota.cs" />
-    <Compile Include="Assets\Skrypty\UstawieniaBroni.cs" />
-    <Compile Include="Assets\Skrypty\ZapisaywanieBroni.cs" />
-    <Compile Include="Assets\Skrypty\ZaradzanieBotami.cs" />
+    <Compile Include="Assets\Skrypty\Spawnpointy.cs" />
     <None Include="Assets\Inne\Czcionka\OFL.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
