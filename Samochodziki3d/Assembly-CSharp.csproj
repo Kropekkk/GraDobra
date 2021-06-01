@@ -62,11 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Moby\OWCA\AI_Moba.cs" />
-    <Compile Include="Assets\Moby\OWCA\Owca.cs" />
-    <Compile Include="Assets\Skrypty\Boty\Bot.cs" />
-    <Compile Include="Assets\Skrypty\Boty\TworzenieBota.cs" />
-    <Compile Include="Assets\Skrypty\Boty\ZaradzanieBotami.cs" />
+    <Compile Include="Assets\Moby\AI_Moba.cs" />
+    <Compile Include="Assets\Moby\Mob.cs" />
     <Compile Include="Assets\Skrypty\Bronie\Lufa.cs" />
     <Compile Include="Assets\Skrypty\Bronie\Magazynek.cs" />
     <Compile Include="Assets\Skrypty\Bronie\MojaBron.cs" />
@@ -74,6 +71,9 @@
     <Compile Include="Assets\Skrypty\Bronie\ObslugaSzkieletu.cs" />
     <Compile Include="Assets\Skrypty\Bronie\Obslugamagazynka.cs" />
     <Compile Include="Assets\Skrypty\Bronie\SzkieletBroni.cs" />
+    <Compile Include="Assets\Skrypty\Dozamiany\Bot.cs" />
+    <Compile Include="Assets\Skrypty\Dozamiany\TworzenieBota.cs" />
+    <Compile Include="Assets\Skrypty\Dozamiany\ZaradzanieBotami.cs" />
     <Compile Include="Assets\Skrypty\Gra.cs" />
     <Compile Include="Assets\Skrypty\Inne\Bron.cs" />
     <Compile Include="Assets\Skrypty\Inne\Kamera.cs" />
@@ -83,8 +83,6 @@
     <Compile Include="Assets\Skrypty\Inne\Ruch.cs" />
     <Compile Include="Assets\Skrypty\Inne\UstawieniaBroni.cs" />
     <Compile Include="Assets\Skrypty\Inne\ZapisaywanieBroni.cs" />
-    <Compile Include="Assets\Skrypty\Punkty.cs" />
-    <Compile Include="Assets\Skrypty\Rozgrywka.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Kolor.cs" />
     <Compile Include="Assets\Skrypty\Scena2Skrypty\Scena2.cs" />
     <Compile Include="Assets\Skrypty\Sklep\Sklep.cs" />

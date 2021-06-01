@@ -24,8 +24,7 @@ public class KupionaBron
         nazwabroni = PlayerPrefs.GetString("NazwaBroni"+id);
         szkielet = PlayerPrefs.GetString("NazwaSzkieletu"+id);
         magazynek = PlayerPrefs.GetString("NazwaMagazynka" + id);
-        lufa = PlayerPrefs.GetString("NazwaLufy" + id);
-       
+        lufa = PlayerPrefs.GetString("NazwaLufy" + id);  
     }
     public void ZapisaneBronie()
     {
@@ -67,6 +66,5 @@ public class KupionaBron
         PlayerPrefs.DeleteKey("NazwaSzkieletu" + id);
         PlayerPrefs.DeleteKey("NazwaMagazynka" + id);
         PlayerPrefs.DeleteKey("NazwaLufy" + id);
-
     }
 }

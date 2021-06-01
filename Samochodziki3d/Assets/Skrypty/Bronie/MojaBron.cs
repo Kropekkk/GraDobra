@@ -36,6 +36,11 @@ public class MojaBron : MonoBehaviour
 
     int id;
 
+    // Nowe
+    bool Czy_bron_wyjeta;
+
+    public Ruch Ruch;
+
     void Start()
     {
         id = PlayerPrefs.GetInt("IDBroni");
@@ -45,7 +50,7 @@ public class MojaBron : MonoBehaviour
 
         amunicja = PlayerPrefs.GetInt("MojeAmmo");
 
-        amunicja_T.text = "Amunicja: " + amunicja;
+       // amunicja_T.text = "Amunicja: " + amunicja;
     }
     void Update()
     {
@@ -54,13 +59,30 @@ public class MojaBron : MonoBehaviour
             czas = Time.time + zmiana_magazynka / 10;
             Strzal();
         }
+
+        if (Input.GetButton("Fire2"))
+        {
+            Czy_bron_wyjeta = true;
+        }
+        else
+        {
+            //Czy_bron_wyjeta = false;
+        }
+        if(Czy_bron_wyjeta)
+        {
+            Ruch.czybron = true;
+        }
+        else
+        {
+            Ruch.czybron = false;
+        }
     }
 
     void Strzal()
     {
-        amunicja = amunicja - 1;
-        PlayerPrefs.SetInt("MojeAmmo", amunicja);
-        amunicja_T.text = "Amunicja: " + amunicja;
+        //amunicja = amunicja - 1;
+        //PlayerPrefs.SetInt("MojeAmmo", amunicja);
+        //amunicja_T.text = "Amunicja: " + amunicja;
         RaycastHit hit;
         if (Physics.Raycast(celownik.transform.position, celownik.transform.forward, out hit, zasieg_broni)) 
         {
@@ -76,6 +98,22 @@ public class MojaBron : MonoBehaviour
         }
         obsluga_szkieletu.Strzal();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     void PobierzBron()
     {
         AktualnaBron = new GameObject(nazwabroni);

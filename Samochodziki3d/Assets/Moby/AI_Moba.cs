@@ -13,25 +13,48 @@ public class AI_Moba : MonoBehaviour
     public Animator Animacje_moba;
 
     bool Czy_jedzenie = false, Czy_ruch = false;
-
     bool Czy_wylosowane = false;
-    int licznik;
 
-    float x, z, Predkosc_Moba;
+    float x, z;
     float skala;
     float kat;
 
     int odleglosc_niszczenia_moba = 200;
 
+    public Mob Moj_Mob;
+
+    float Czas_animacji;
+
+    //Wartosci Rozne
+
+    int Predkosc_Moba=20;
+    int punkty_zycia;
+
+    int Czas_animacji_jedzenia;
+    int Czas_animacji_idle;
+    int Czas_animacji_ruchu;
+
+    float Wielkosc_minimalna_moba;
+    float Wielkosc_maksymalna_moba;
+
+    bool Mozliwosc_atakowania_innych;
+
+    int Damage_zadawany_innym;
+
     void Start()
     {
-        Predkosc_Moba = 20;
+        PobierzDane();
         Gracz = GameObject.Find("Postac");
+        Wylosuj_Czynnosc();
     }
     void Update()
     {
         Oblicz_Pozycje();
         CzynnosciMoba();
+    }
+    void Wylosuj_Czynnosc()
+    {
+        Czas_animacji = Random.Range(1, Czas_animacji_idle + Czas_animacji_jedzenia + Czas_animacji_ruchu);
     }
     void Oblicz_Pozycje()
     {
@@ -46,29 +69,28 @@ public class AI_Moba : MonoBehaviour
     }
     void CzynnosciMoba()
     {
-        licznik += 1;
+        Czas_animacji += Time.deltaTime;
 
-        if (licznik > 500 && licznik < 1000)
+        if (Czas_animacji > Czas_animacji_idle && Czas_animacji < Czas_animacji_idle+Czas_animacji_jedzenia)
         {
             Czy_jedzenie = true;
             Czy_ruch = false;
         }
-        if (licznik >= 1000)
+        if (Czas_animacji >= Czas_animacji_idle + Czas_animacji_jedzenia)
         {
             Czy_jedzenie = false;
             Czy_ruch = true;
 
             Ruch_Moba();
 
-            if (licznik > 3000)
+            if (Czas_animacji > Czas_animacji_idle + Czas_animacji_jedzenia+Czas_animacji_ruchu)
             {
                 Czy_jedzenie = false;
                 Czy_ruch = false;
-                licznik = 0;
+                Czas_animacji = 0;
                 Czy_wylosowane = false;
             }
         }
-
         Animacje_moba.SetBool("Jedzenie", Czy_jedzenie);
         Animacje_moba.SetBool("Ruch", Czy_ruch);
     }
@@ -77,7 +99,7 @@ public class AI_Moba : MonoBehaviour
         if (!Czy_wylosowane)
         {
             Wylosuj_Kierunek_Moba();
-        }
+        }        
         Mob.velocity = new Vector3(x / skala, Mob.velocity.y, z / skala);
     }
     void Wylosuj_Kierunek_Moba()
@@ -96,7 +118,6 @@ public class AI_Moba : MonoBehaviour
             Czy_wylosowane = true;
 
             Obroc_Moba();
-
         }
     }
     void Obroc_Moba()
@@ -123,7 +144,21 @@ public class AI_Moba : MonoBehaviour
             {
                 transform.rotation = Quaternion.Euler(0, -kat - 90, 0);
             }
-
         }
+    }
+    void PobierzDane()
+    {
+        Predkosc_Moba = Moj_Mob.Predkosc_Moba;
+        punkty_zycia = Moj_Mob.punkty_zycia;
+        Czas_animacji_jedzenia= Moj_Mob.Czas_animacji_jedzenia;
+        Czas_animacji_idle = Moj_Mob.Czas_animacji_idle;
+        Czas_animacji_ruchu = Moj_Mob.Czas_animacji_ruchu;
+
+        Wielkosc_minimalna_moba = Moj_Mob.Wielkosc_minimalna_moba;
+        Wielkosc_maksymalna_moba = Moj_Mob.Wielkosc_maksymalna_moba;
+
+        Mozliwosc_atakowania_innych =Moj_Mob.Mozliwosc_atakowania_innych;
+
+        Damage_zadawany_innym = Moj_Mob.Damage_zadawany_innym;
     }
 }

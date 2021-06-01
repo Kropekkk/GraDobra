@@ -25,11 +25,11 @@ public class Ruch : MonoBehaviour
     public Animator animacja;
 
     public SkinnedMeshRenderer ab, ac;
-    bool czybron;
+    public bool czybron;
 
     void Start()
     {
-        czybron = true;
+        //czybron = true;
         //PobierzMojaPostac();
         ab.material.color = new Color(1, 0, 0);
         ac.material.color = new Color(0, 1, 0);
@@ -54,7 +54,7 @@ public class Ruch : MonoBehaviour
 
         animacja.SetBool("bieg",Input.GetAxis("Vertical") !=0 || Input.GetAxis("Horizontal")!=0);
         animacja.SetBool("skok", !czy);
-        //animacja.SetBool("bron", czybron);
+        animacja.SetBool("bron", czybron);
 
         if(Input.GetKey("i"))
         {
