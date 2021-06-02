@@ -15,16 +15,15 @@ public class AI_Moba : MonoBehaviour
     bool Czy_jedzenie = false, Czy_ruch = false;
     bool Czy_wylosowane = false;
 
+    //
     float x, z;
     float skala;
     float kat;
-
-    int odleglosc_niszczenia_moba = 200;
-
-    public Mob Moj_Mob;
-
     float Czas_animacji;
 
+    int odleglosc_niszczenia_moba = 200;    //Wartosc dla kazdego moba
+    //
+    public Mob Moj_Mob;
     //Wartosci Rozne
 
     int Predkosc_Moba=20;
@@ -160,5 +159,17 @@ public class AI_Moba : MonoBehaviour
         Mozliwosc_atakowania_innych =Moj_Mob.Mozliwosc_atakowania_innych;
 
         Damage_zadawany_innym = Moj_Mob.Damage_zadawany_innym;
+    }
+    public void Damage(int damage)
+    {
+        punkty_zycia -= damage;
+        if(punkty_zycia<=0)
+        {
+            Umieranie();
+        }
+    }
+    void Umieranie()
+    {
+        Destroy(gameObject);
     }
 }

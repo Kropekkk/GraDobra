@@ -619,6 +619,9 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Github/GraDobra/GraDobra/Samochodziki3d/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>D:/Github/GraDobra/GraDobra/Samochodziki3d/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>D:/Github/GraDobra/GraDobra/Samochodziki3d/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -636,6 +639,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:/Github/GraDobra/GraDobra/Samochodziki3d/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>D:/Github/GraDobra/GraDobra/Samochodziki3d/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/Github/GraDobra/GraDobra/Samochodziki3d/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>

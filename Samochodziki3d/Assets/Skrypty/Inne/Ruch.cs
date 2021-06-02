@@ -27,6 +27,9 @@ public class Ruch : MonoBehaviour
     public SkinnedMeshRenderer ab, ac;
     public bool czybron;
 
+    public GameObject pierwszaosoba;
+    public GameObject trzeciaosoba;
+
     void Start()
     {
         //czybron = true;
@@ -52,6 +55,7 @@ public class Ruch : MonoBehaviour
         predkosc.y += -9.81f * Time.deltaTime;
         gracz.Move(predkosc * Time.deltaTime);
 
+
         animacja.SetBool("bieg",Input.GetAxis("Vertical") !=0 || Input.GetAxis("Horizontal")!=0);
         animacja.SetBool("skok", !czy);
         animacja.SetBool("bron", czybron);
@@ -61,6 +65,21 @@ public class Ruch : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Wyjdz();
         }
+
+
+
+        if(Input.GetKey("3"))
+        {
+            pierwszaosoba.SetActive(false);
+            trzeciaosoba.SetActive(true);
+        }
+        if(Input.GetKey("1"))
+        {
+            pierwszaosoba.SetActive(true);
+            trzeciaosoba.SetActive(false);
+        }
+
+
     }
     public void Wyjdz()
     {

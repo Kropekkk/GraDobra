@@ -28,6 +28,5 @@ public class ObslugaSzkieletu : MonoBehaviour
     public void Strzal()
     {
         blysk.Play();
-        Debug.Log("dziala");
     }
 }

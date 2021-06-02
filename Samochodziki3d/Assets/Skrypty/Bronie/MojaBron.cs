@@ -7,7 +7,7 @@ public class MojaBron : MonoBehaviour
 {
     public int damage;
     public int pojemnosc_magazynka;
-    public int zasieg_broni=100;
+    public int zasieg_broni=300;
 
     public Transform SpawnBroni;
 
@@ -86,15 +86,12 @@ public class MojaBron : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(celownik.transform.position, celownik.transform.forward, out hit, zasieg_broni)) 
         {
-            if (hit.transform.name == "Start")
+
+            AI_Moba trafiony_mob = hit.transform.GetComponent<AI_Moba>();
+            if(trafiony_mob!=null)
             {
-                boty.Rozpocznij();
-            }
-            Bot jaki = hit.transform.GetComponent<Bot>();
-            if (jaki != null)
-            {
-                jaki.Zycie(damage);
-            }
+                trafiony_mob.Damage(damage);
+            }     
         }
         obsluga_szkieletu.Strzal();
     }
